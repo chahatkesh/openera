@@ -6,21 +6,25 @@ const Organizers = () => {
     {
       name: "Vatsal Khanna",
       linkedin: "https://linkedin.com/in/vatsal-khanna",
+      twitter: "https://twitter.com/vatsal_khanna",
       image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&auto=format&fit=crop&q=80"
     },
     {
       name: "Chahat Kesharwani",
       linkedin: "https://linkedin.com/in/chahat-kesharwani",
+      twitter: "https://twitter.com/chahat_kesh",
       image: "https://images.unsplash.com/photo-1554151228-14d9def656e4?w=300&h=300&auto=format&fit=crop&q=80"
     },
     {
       name: "Ratinderdeep Singh",
       linkedin: "https://linkedin.com/in/ratinderdeep-singh",
+      twitter: "https://twitter.com/ratinder_singh",
       image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&auto=format&fit=crop&q=80"
     },
     {
       name: "Harshvardhan Agarwal",
       linkedin: "https://linkedin.com/in/harshvardhan-agarwal",
+      twitter: "https://twitter.com/harsh_agarwal",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&auto=format&fit=crop&q=80"
     },
   ];
@@ -128,16 +132,31 @@ const Organizers = () => {
                     <div className="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-yellow-400 to-transparent transition-all duration-500 mt-1"></div>
                   </div>
                   
-                  {/* LinkedIn button - centered */}
-                  <div className="flex justify-center">
+                  {/* Social media buttons - side by side */}
+                  <div className="flex justify-center gap-3">
+                    {/* LinkedIn button */}
                     <a 
                       href={person.linkedin} 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="w-10 h-10 flex items-center justify-center bg-yellow-400/10 hover:bg-yellow-400 rounded-lg transition-all duration-300 group-hover:rotate-12 group-hover:scale-110"
+                      title="LinkedIn Profile"
                     >
                       <svg className="w-5 h-5 text-yellow-400 group-hover:text-black transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z" />
+                      </svg>
+                    </a>
+                    
+                    {/* Twitter/X button */}
+                    <a 
+                      href={person.twitter} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 flex items-center justify-center bg-yellow-400/10 hover:bg-yellow-400 rounded-lg transition-all duration-300 group-hover:-rotate-12 group-hover:scale-110"
+                      title="Twitter/X Profile"
+                    >
+                      <svg className="w-4 h-4 text-yellow-400 group-hover:text-black transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
                       </svg>
                     </a>
                   </div>

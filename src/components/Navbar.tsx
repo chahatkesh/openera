@@ -62,7 +62,7 @@ export default function Navbar() {
               { id: "timeline", label: "Timeline" },
               { id: "prizes", label: "Prizes" },
               { id: "sponsors", label: "Sponsors" },
-              { id: "faq", label: "FAQ" }
+              { id: "organizers", label: "Team" }
             ].map((item) => (
               <motion.a
                 key={item.id}
@@ -122,7 +122,7 @@ export default function Navbar() {
               { id: "timeline", label: "Timeline" },
               { id: "prizes", label: "Prizes" },
               { id: "sponsors", label: "Sponsors" },
-              { id: "faq", label: "FAQ" }
+              { id: "organizers", label: "Team" }
             ].map((item) => (
               <a
                 key={item.id}

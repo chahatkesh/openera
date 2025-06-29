@@ -78,7 +78,7 @@ export default function Footer() {
                 { name: "Timeline", href: "timeline" },
                 { name: "Prizes", href: "prizes" },
                 { name: "Sponsors", href: "sponsors" },
-                { name: "FAQ", href: "faq" }
+                { name: "Team", href: "organizers" }
               ].map((item) => (
                 <li key={item.name}>
                   <a 
