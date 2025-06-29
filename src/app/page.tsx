@@ -6,7 +6,6 @@ import Prizes from "@/components/Prizes";
 import Sponsors from "@/components/Sponsors";
 import ProblemStatements from "@/components/ProblemStatements";
 import FAQ from "@/components/FAQ";
-import Register from "@/components/Register";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -20,7 +19,6 @@ export default function Home() {
       <Prizes />
       <Sponsors />
       <FAQ />
-      <Register />
       <Footer />
     </div>
   );

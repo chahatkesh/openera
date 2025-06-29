@@ -72,13 +72,20 @@ export default function Footer() {
           <motion.div variants={fadeIn} className="col-span-1">
             <h4 className="text-white font-semibold mb-6 text-lg">Quick Links</h4>
             <ul className="space-y-3">
-              {["About", "Tracks", "Timeline", "Prizes", "Sponsors", "FAQ"].map((item) => (
-                <li key={item}>
+              {[
+                { name: "About", href: "about" },
+                { name: "Problem Statements", href: "problem-statements" },
+                { name: "Timeline", href: "timeline" },
+                { name: "Prizes", href: "prizes" },
+                { name: "Sponsors", href: "sponsors" },
+                { name: "FAQ", href: "faq" }
+              ].map((item) => (
+                <li key={item.name}>
                   <a 
-                    href={`#${item.toLowerCase()}`} 
+                    href={`#${item.href}`} 
                     className="text-gray-400 hover:text-yellow-400 transition-colors flex items-center"
                   >
-                    <span className="mr-2">→</span> {item}
+                    <span className="mr-2">→</span> {item.name}
                   </a>
                 </li>
               ))}
@@ -109,19 +116,21 @@ export default function Footer() {
           <motion.div variants={fadeIn} className="col-span-1">
             <h4 className="text-white font-semibold mb-6 text-lg">Stay Updated</h4>
             <p className="text-gray-400 mb-4">Subscribe to our newsletter for the latest updates.</p>
-            <form className="flex flex-col sm:flex-row gap-3">
-              <input 
-                type="email" 
-                placeholder="Your email" 
-                className="bg-gray-900 text-white border border-gray-800 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-transparent"
-                required
-              />
-              <button 
-                type="submit" 
-                className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium rounded-md px-4 py-2 transition-colors"
-              >
-                Subscribe
-              </button>
+            <form className="flex flex-col w-full max-w-sm">
+              <div className="flex flex-col space-y-3">
+                <input 
+                  type="email" 
+                  placeholder="Your email" 
+                  className="bg-gray-900 text-white border border-gray-800 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-transparent w-full"
+                  required
+                />
+                <button 
+                  type="submit" 
+                  className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium rounded-md px-4 py-2 transition-colors w-full"
+                >
+                  Subscribe
+                </button>
+              </div>
             </form>
           </motion.div>
         </motion.div>
