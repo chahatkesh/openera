@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
@@ -5,6 +7,13 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
+            <Image
+              src="/logo.png"
+              alt="OpenERA Logo"
+              width={32}
+              height={32}
+              className="mr-3"
+            />
             <h2 className="text-xl font-bold text-black dark:text-white">
               OpenERA
             </h2>
