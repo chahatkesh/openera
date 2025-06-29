@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Brand */}
           <div className="mb-4 md:mb-0">
-            <h3 className="text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h3 className="text-lg font-bold text-black dark:text-white">
               OpenERA
             </h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">

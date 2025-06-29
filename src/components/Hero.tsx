@@ -3,10 +3,8 @@ export default function Hero() {
     <section className="flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 pt-16">
       <div className="text-center max-w-4xl mx-auto">
         {/* Main Title */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6">
-          <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            OpenERA
-          </span>
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-black dark:text-white mb-6">
+          OpenERA
         </h1>
         
         {/* Subtitle */}
@@ -15,9 +13,9 @@ export default function Hero() {
         </p>
         
         {/* Coming Soon Badge */}
-        <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 border border-blue-200 dark:border-blue-800 mb-12">
-          <div className="w-2 h-2 bg-green-500 rounded-full mr-3 animate-pulse"></div>
-          <span className="text-sm sm:text-base font-semibold text-gray-800 dark:text-gray-200">
+        <div className="inline-flex items-center px-6 py-3 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 mb-12">
+          <div className="w-2 h-2 bg-black dark:bg-white rounded-full mr-3 animate-pulse"></div>
+          <span className="text-sm sm:text-base font-semibold text-black dark:text-white">
             Coming Soon
           </span>
         </div>
@@ -27,7 +25,7 @@ export default function Hero() {
           Join the future of finance where artificial intelligence meets innovation. 
           Build, compete, and shape the next generation of financial technology.
         </p>
-        
+
       </div>
     </section>
   );
