@@ -1,6 +1,7 @@
 "use client";
 import { motion } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
+import Image from 'next/image';
 
 interface MousePosition {
   x: number;
@@ -10,6 +11,34 @@ interface MousePosition {
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLElement>(null);
   const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+  
+  // Set countdown target date (August 1, 2025)
+  const targetDate = new Date('2025-08-01T00:00:00').getTime();
+  
+  // Update countdown timer every second
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+      
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        });
+      }
+    }, 1000);
+    
+    return () => clearInterval(interval);
+  }, [targetDate]);
   
   // Handle mouse movement for subtle glow effect
   useEffect(() => {
@@ -67,7 +96,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-center relative overflow-hidden bg-black" ref={containerRef}>
+    <section id="home" className="min-h-screen w-full flex flex-col items-center justify-center pt-8 relative overflow-hidden bg-black" ref={containerRef}>
       {/* Sophisticated background effects */}
       <div className="absolute inset-0 z-0">
         {/* Subtle dot pattern */}
@@ -81,9 +110,9 @@ const Hero: React.FC = () => {
         
         {/* Gradient orbs for depth */}
         <motion.div 
-          className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full opacity-[0.06]"
+          className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full opacity-[0.08]"
           style={{
-            background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 50%, transparent 100%)',
+            background: 'radial-gradient(circle, rgba(255,215,0,0.15) 0%, rgba(255,215,0,0.03) 50%, transparent 100%)',
             filter: 'blur(100px)'
           }}
           variants={floatingVariants}
@@ -91,9 +120,9 @@ const Hero: React.FC = () => {
         />
         
         <motion.div 
-          className="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] rounded-full opacity-[0.04]"
+          className="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] rounded-full opacity-[0.06]"
           style={{
-            background: 'radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.01) 50%, transparent 100%)',
+            background: 'radial-gradient(circle, rgba(255,165,0,0.12) 0%, rgba(255,165,0,0.02) 50%, transparent 100%)',
             filter: 'blur(120px)'
           }}
           variants={floatingVariants}
@@ -103,45 +132,59 @@ const Hero: React.FC = () => {
         
         {/* Subtle cursor follow effect */}
         <div 
-          className="absolute pointer-events-none w-[400px] h-[400px] rounded-full opacity-[0.02] transition-all duration-1000 ease-out"
+          className="absolute pointer-events-none w-[400px] h-[400px] rounded-full opacity-[0.03] transition-all duration-1000 ease-out"
           style={{ 
             left: `${mousePosition.x - 200}px`, 
             top: `${mousePosition.y - 200}px`,
-            background: 'radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(255,215,0,0.2) 0%, transparent 70%)',
             filter: 'blur(60px)'
           }}
         />
+
+        {/* Grid pattern */}
+        <div className="absolute inset-0 bg-[radial-gradient(#ffffff10_1px,transparent_1px)] [background-size:40px_40px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
       </div>
       
       <motion.div 
-        className="relative z-10 max-w-4xl w-full px-8 text-center"
+        className="relative z-10 max-w-5xl w-full px-8 text-center"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
-        
-        {/* Main heading */}
-        <motion.h1
-          variants={itemVariants} 
-          className="text-6xl md:text-5xl font-bold text-white mb-4 tracking-tight pt-20"
-          style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+        {/* Logo and main heading */}
+        <motion.div 
+          variants={itemVariants}
+          className="flex flex-col items-center justify-center mt-8"
         >
-          OpenERA
-        </motion.h1>
+          <div className="relative w-40 h-40 mb-4">
+            <Image
+              src="/logo.png"
+              alt="OpenERA Logo"
+              width={90}
+              height={90}
+              className="filter drop-shadow-xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+            />
+          </div>
+          <h1 className="text-6xl md:text-7xl font-extrabold text-white mb-3 tracking-tight">
+            Open<span className="text-yellow-400">ERA</span>
+          </h1>
+          
+          <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto my-6 rounded-full"></div>
+        </motion.div>
         
         {/* Hackathon subtitle */}
         <motion.h2 
           variants={itemVariants} 
-          className="text-2xl md:text-2xl font-light text-white/80 mb-2 tracking-wide"
+          className="text-2xl md:text-3xl font-light text-white/90 mb-4 tracking-wide"
         >
-          AI + Finance Hackathon
+          <span className="font-medium">AI</span> + <span className="font-medium">Finance</span> Hackathon
         </motion.h2>
         
         {/* Coming Soon badge */}
-        <motion.div variants={itemVariants} className="mb-8">
-          <div className="inline-flex items-center gap-3 px-6 py-2 border border-orange-400/30 rounded-full backdrop-blur-sm bg-orange-400/5">
-            <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-            <span className="text-orange-400 font-mono text-lg tracking-wider font-semibold">
+        <motion.div variants={itemVariants} className="mb-10">
+          <div className="inline-flex items-center gap-3 px-6 py-2 border border-yellow-400/30 rounded-full backdrop-blur-sm bg-yellow-400/5">
+            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+            <span className="text-yellow-400 font-mono text-lg tracking-wider font-semibold">
               COMING SOON
             </span>
           </div>
@@ -152,21 +195,31 @@ const Hero: React.FC = () => {
           variants={itemVariants}
           className="relative w-96 max-w-full mx-auto mb-12"
         >
-          <div className="h-px bg-white/10 relative overflow-hidden">
+          <div className="h-1 bg-gray-900 rounded-full relative overflow-hidden">
             <motion.div 
-              className="absolute left-0 h-full bg-gradient-to-r from-transparent via-orange-400/60 to-transparent"
-              style={{ width: '70%' }}
+              className="absolute left-0 h-full bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full"
+              style={{ width: '85%' }}
+              initial={{ scaleX: 0, originX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{
+                duration: 1.5,
+                delay: 0.5,
+                ease: "easeOut"
+              }}
+            />
+            <motion.div 
+              className="absolute left-0 h-full w-20 bg-gradient-to-r from-transparent via-yellow-300/60 to-transparent"
               initial={{ x: '-100%' }}
               animate={{ x: '200%' }}
               transition={{
-                duration: 3,
+                duration: 2,
                 repeat: Infinity,
-                repeatDelay: 2,
-                ease: "easeInOut" as const
+                repeatDelay: 1,
+                ease: "easeInOut"
               }}
             />
           </div>
-          <div className="flex justify-between mt-3 text-xs text-white/40 tracking-widest uppercase">
+          <div className="flex justify-between mt-3 text-xs text-white/50 tracking-widest uppercase font-mono">
             <span>Event Setup</span>
             <span>85%</span>
           </div>
@@ -174,32 +227,97 @@ const Hero: React.FC = () => {
         
         {/* Description */}
         <motion.div variants={itemVariants} className="mb-12">
-          <p className=" text-white/70 leading-relaxed font-light max-w-3xl mx-auto">
-            Join the future of finance where artificial intelligence meets innovation. Build, compete, and shape the next generation of financial technology.
+          <p className="text-white/80 text-lg leading-relaxed font-light max-w-3xl mx-auto">
+            Join the revolution where <span className="text-yellow-400 font-medium">AI meets finance</span>. Build groundbreaking solutions, 
+            compete with brilliant minds, and shape the next generation of financial technology.
           </p>
         </motion.div>
         
-        {/* Launch date */}
-        <motion.div variants={itemVariants} className="mb-8">
-          <div className="inline-flex items-center gap-3 px-8 py-4 border border-white/10 rounded-full backdrop-blur-sm">
-            <div className="w-2 h-2 bg-white/40 rounded-full animate-pulse"></div>
-            <span className="text-white/70 font-mono text-sm tracking-wider">
-              REGISTRATION OPENS SOON
-            </span>
+        {/* CTA buttons */}
+        <motion.div 
+          variants={itemVariants} 
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+        >
+          <motion.a
+            href="#register"
+            className="px-8 py-3 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-medium rounded-full shadow-lg shadow-yellow-500/20 text-lg transition-all duration-300"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Register Interest
+          </motion.a>
+          
+          <motion.a
+            href="#about"
+            className="px-8 py-3 bg-transparent text-white border border-white/20 hover:border-yellow-400/40 hover:text-yellow-400 rounded-full text-lg transition-all duration-300"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Learn More
+          </motion.a>
+        </motion.div>
+        
+        {/* Countdown section */}
+        <motion.div variants={itemVariants} className="mb-14">
+          <div className="text-white/60 uppercase tracking-widest text-sm mb-4 font-mono">
+            Registration Opens In
+          </div>
+          <div className="flex justify-center space-x-4 sm:space-x-8">
+            {[
+              { value: timeLeft.days, label: "Days" },
+              { value: timeLeft.hours, label: "Hours" },
+              { value: timeLeft.minutes, label: "Minutes" },
+              { value: timeLeft.seconds, label: "Seconds" }
+            ].map((item, i) => (
+              <div key={i} className="flex flex-col items-center">
+                <div className="text-2xl sm:text-4xl font-bold text-white bg-gray-900 p-3 sm:p-4 rounded-lg w-16 sm:w-20 border border-yellow-500/20">
+                  {item.value}
+                </div>
+                <div className="text-xs sm:text-sm text-yellow-500 mt-2 font-mono tracking-wider">
+                  {item.label}
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
         
-        {/* Subtle footer */}
-        <motion.div variants={itemVariants} className="mt-16">
-          <p className="text-white/30 text-sm font-mono tracking-wide">
-            Be part of the financial revolution
-          </p>
+        {/* Geometric accents */}
+        <motion.div 
+          className="absolute -bottom-10 left-0 w-64 h-64 opacity-20"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.2 }}
+          transition={{ delay: 1, duration: 1.5 }}
+        >
+          <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent to-yellow-400"></div>
+          <div className="absolute top-0 left-0 w-0.5 h-full bg-gradient-to-b from-yellow-400 to-transparent"></div>
         </motion.div>
+        
+        <motion.div 
+          className="absolute -bottom-10 right-0 w-64 h-64 opacity-20" 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.2 }}
+          transition={{ delay: 1, duration: 1.5 }}
+        >
+          <div className="absolute top-0 right-0 w-full h-0.5 bg-gradient-to-l from-transparent to-yellow-400"></div>
+          <div className="absolute top-0 right-0 w-0.5 h-full bg-gradient-to-b from-yellow-400 to-transparent"></div>
+        </motion.div>
+
+        {/* Arrow down */}
+        <motion.a
+          href="#about"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-yellow-400 hover:text-yellow-300 transition-all"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ 
+            duration: 2, 
+            repeat: Infinity,
+            ease: "easeInOut" 
+          }}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
+            <path d="M12 5v14M5 12l7 7 7-7"></path>
+          </svg>
+        </motion.a>
       </motion.div>
-      
-      {/* Minimal geometric accent */}
-      <div className="absolute bottom-8 left-8 w-px h-16 bg-gradient-to-t from-transparent to-white/20"></div>
-      <div className="absolute bottom-8 right-8 w-16 h-px bg-gradient-to-l from-transparent to-white/20"></div>
     </section>
   );
 };
