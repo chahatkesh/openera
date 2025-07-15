@@ -18,6 +18,54 @@ const Hero: React.FC = () => {
     seconds: 0
   });
   
+  // Track if the button is ready
+  const [isButtonLoaded, setIsButtonLoaded] = useState(false);
+
+  // Load Devfolio SDK and initialize button - optimized version with requestIdleCallback
+  useEffect(() => {
+    // Function to load and initialize the Devfolio SDK
+    const loadDevfolioSDK = () => {
+      // First, load the SDK script
+      const script = document.createElement('script');
+      script.src = 'https://apply.devfolio.co/v2/sdk.js';
+      script.async = true;
+      script.defer = true;
+      
+      script.onload = () => {
+        // Initialize button immediately after script loads
+        try {
+          if (window.devfolio) {
+            window.devfolio.init();
+            setIsButtonLoaded(true);
+          }
+        } catch (error) {
+          // Silently catch errors in production
+          if (process.env.NODE_ENV !== 'production') {
+            console.error('Error initializing Devfolio button:', error);
+          }
+        }
+      };
+      
+      document.body.appendChild(script);
+    };
+    
+    // Use requestIdleCallback for non-critical initialization (with fallback)
+    if (window.requestIdleCallback) {
+      window.requestIdleCallback(loadDevfolioSDK, { timeout: 2000 });
+    } else {
+      // Fallback for browsers without requestIdleCallback
+      setTimeout(loadDevfolioSDK, 100);
+    }
+    
+    // Cleanup function
+    return () => {
+      const script = document.querySelector('script[src="https://apply.devfolio.co/v2/sdk.js"]');
+      if (script && script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, []);
+  
   // Set countdown target date (August 1, 2025)
   const targetDate = new Date('2025-08-01T00:00:00').getTime();
   
@@ -238,14 +286,25 @@ const Hero: React.FC = () => {
           variants={itemVariants} 
           className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
         >
-          <motion.a
-            href="#register"
-            className="px-8 py-3 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-medium rounded-full shadow-lg shadow-yellow-500/20 text-lg transition-all duration-300"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Register Interest
-          </motion.a>
+          {/* Optimized Devfolio button with minimal fallback */}
+          <div className="relative">
+            {!isButtonLoaded && (
+              <motion.div
+                className="absolute inset-0 px-8 py-3 bg-blue-600 text-white rounded-full text-lg flex items-center justify-center cursor-pointer z-10"
+                whileHover={{ scale: 1.05 }}
+                style={{ minWidth: '180px', minHeight: '45px' }}
+              >
+                Apply with Devfolio
+              </motion.div>
+            )}
+            
+            {/* The actual Devfolio button container */}
+            <div 
+              className="apply-button relative z-20" 
+              data-hackathon-slug="openera" 
+              data-button-theme="dark-inverted"
+            ></div>
+          </div>
           
           <motion.a
             href="#about"

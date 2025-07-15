@@ -24,6 +24,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        {/* Performance optimizations */}
+        <link rel="preconnect" href="https://apply.devfolio.co" />
+        <link rel="dns-prefetch" href="https://apply.devfolio.co" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
       >

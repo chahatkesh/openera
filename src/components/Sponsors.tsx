@@ -22,12 +22,69 @@ const Sponsors = () => {
     }
   };
 
-  // Placeholder for sponsor logos
-  const sponsorPlaceholders = [
-    { tier: "Platinum", count: 2 },
-    { tier: "Gold", count: 4 },
-    { tier: "Silver", count: 6 }
+  // Devfolio Logo Component
+  const DevfolioLogo = ({ className }: { className?: string }) => (
+    <img 
+      src="https://devfolio.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F055de5cb-e9de-43cf-a87e-c2c43bd5a671%2F_Dark.png?table=block&id=001376d2-c0f1-4312-971e-a6d3588181a2&spaceId=5bc094c8-987c-4274-938f-8a9d3fad1a04&width=660&userId=&cache=v2" 
+      alt="DEVFOLIO LOGO" 
+      className={`w-full h-full object-contain ${className}`}
+    />
+  );
+
+  // Ethereum Logo Component
+  const EthereumLogo = ({ className }: { className?: string }) => (
+    <img 
+      src="https://devfolio.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F5bc094c8-987c-4274-938f-8a9d3fad1a04%2F3a99e963-fed1-423a-81b2-8e13661c12ef%2FUntitled.png?table=block&id=b43f6ac2-f22d-4513-814d-a841fc5b6079&spaceId=5bc094c8-987c-4274-938f-8a9d3fad1a04&width=660&userId=&cache=v2" 
+      alt="ETHINDIA LOGO" 
+      className={`w-full h-full object-contain ${className}`}
+    />
+  );
+
+  // Sponsor data with actual logos
+  const sponsorData = [
+    {
+      tier: "Platinum",
+      sponsors: [
+        { type: "placeholder", index: 0 },
+        { type: "placeholder", index: 1 }
+      ]
+    },
+    {
+      tier: "Gold",
+      sponsors: [
+        { type: "devfolio", component: DevfolioLogo },
+        { type: "placeholder", index: 0 },
+        { type: "placeholder", index: 1 },
+        { type: "placeholder", index: 2 }
+      ]
+    },
+    {
+      tier: "Silver",
+      sponsors: [
+        { type: "ethereum", component: EthereumLogo },
+        { type: "placeholder", index: 0 },
+        { type: "placeholder", index: 1 },
+        { type: "placeholder", index: 2 },
+        { type: "placeholder", index: 3 },
+        { type: "placeholder", index: 4 }
+      ]
+    }
   ];
+
+  const PlaceholderLogo = ({ tier, index }: { tier: string; index: number }) => (
+    <div className="w-full h-full flex flex-col items-center justify-center text-gray-600 font-mono">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className={`${
+        tier === "Platinum" ? 'w-24 h-24' : 
+        tier === "Gold" ? 'w-16 h-16' : 
+        'w-12 h-12'
+      }`}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+      </svg>
+      <p className="text-center mt-2 text-sm">
+        {tier} Sponsor
+      </p>
+    </div>
+  );
 
   return (
     <section id="sponsors" className="py-24 bg-black relative overflow-hidden">
@@ -57,43 +114,43 @@ const Sponsors = () => {
           </motion.div>
 
           {/* Sponsors tiers */}
-          {sponsorPlaceholders.map((tier, tierIndex) => (
+          {sponsorData.map((tierData, tierIndex) => (
             <motion.div 
               key={tierIndex}
               variants={fadeIn}
               className="mb-16 last:mb-0"
             >
-              <h3 className="text-xl font-semibold text-center text-yellow-400 mb-8">{tier.tier} Sponsors</h3>
+              <h3 className="text-xl font-semibold text-center text-yellow-400 mb-8">{tierData.tier} Sponsors</h3>
               
               <div className={`grid grid-cols-1 ${
-                tier.tier === "Platinum" ? 'sm:grid-cols-2' : 
-                tier.tier === "Gold" ? 'sm:grid-cols-2 lg:grid-cols-4' : 
+                tierData.tier === "Platinum" ? 'sm:grid-cols-2' : 
+                tierData.tier === "Gold" ? 'sm:grid-cols-2 lg:grid-cols-4' : 
                 'sm:grid-cols-3 lg:grid-cols-6'
               } gap-8`}>
-                {Array.from({ length: tier.count }).map((_, index) => (
+                {tierData.sponsors.map((sponsor, index) => (
                   <motion.div
                     key={index}
                     variants={fadeIn}
-                    className={`bg-gray-900/50 border border-yellow-500/10 rounded-xl ${
-                      tier.tier === "Platinum" ? 'h-40' : 
-                      tier.tier === "Gold" ? 'h-32' : 
-                      'h-24'
-                    } flex items-center justify-center p-4 hover:border-yellow-500/30 hover:bg-gray-900 transition-all duration-300`}
-                    whileHover={{ y: -5 }}
+                    className={`${
+                      sponsor.type === "placeholder" 
+                        ? `border border-yellow-500/10 rounded-xl ${
+                            tierData.tier === "Platinum" ? 'h-40' : 
+                            tierData.tier === "Gold" ? 'h-32' : 
+                            'h-24'
+                          } p-4 hover:border-yellow-500/30 transition-all duration-300`
+                        : `${
+                            tierData.tier === "Platinum" ? 'h-40' : 
+                            tierData.tier === "Gold" ? 'h-32' : 
+                            'h-24'
+                          } flex items-center justify-center`
+                    }`}
+                    whileHover={sponsor.type === "placeholder" ? { y: -5 } : {}}
                   >
-                    <div className="text-gray-600 font-mono">
-                      {/* This would be replaced with actual sponsor logos */}
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className={`mx-auto ${
-                        tier.tier === "Platinum" ? 'w-24 h-24' : 
-                        tier.tier === "Gold" ? 'w-16 h-16' : 
-                        'w-12 h-12'
-                      }`}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                      </svg>
-                      <p className="text-center mt-2 text-sm">
-                        {tier.tier} Sponsor
-                      </p>
-                    </div>
+                    {sponsor.type === "placeholder" ? (
+                      <PlaceholderLogo tier={tierData.tier} index={sponsor.index} />
+                    ) : (
+                      <sponsor.component />
+                    )}
                   </motion.div>
                 ))}
               </div>

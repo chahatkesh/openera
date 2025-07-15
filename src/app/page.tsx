@@ -1,13 +1,16 @@
+"use client";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Timeline from "@/components/Timeline";
-import Prizes from "@/components/Prizes";
-import Sponsors from "@/components/Sponsors";
-import ProblemStatements from "@/components/ProblemStatements";
-import FAQ from "@/components/FAQ";
-import Organizers from "@/components/Organizers";
-import Footer from "@/components/Footer";
+// Dynamically import components that aren't needed for initial render
+const About = dynamic(() => import("@/components/About"), { ssr: true });
+const Timeline = dynamic(() => import("@/components/Timeline"), { ssr: true });
+const Prizes = dynamic(() => import("@/components/Prizes"), { ssr: true });
+const Sponsors = dynamic(() => import("@/components/Sponsors"), { ssr: true });
+const ProblemStatements = dynamic(() => import("@/components/ProblemStatements"), { ssr: true });
+const FAQ = dynamic(() => import("@/components/FAQ"), { ssr: true });
+const Organizers = dynamic(() => import("@/components/Organizers"), { ssr: true });
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
 
 export default function Home() {
   return (
