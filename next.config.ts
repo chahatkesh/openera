@@ -5,13 +5,23 @@ const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'devfolio.notion.site',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
-  // Optimize bundle size
-  optimizeFonts: true,
   // Enable compression
   compress: true,
-  // Improve build performance
-  swcMinify: true,
   reactStrictMode: true,
   // Disable developer features in production
   productionBrowserSourceMaps: false,

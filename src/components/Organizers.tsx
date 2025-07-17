@@ -1,4 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
+import DefaultAvatar from './DefaultAvatar';
 
 const Organizers = () => {
   // Organizer details
@@ -60,7 +62,7 @@ const Organizers = () => {
         {/* Section header */}
         <div className="mb-16 text-center">
           <div className="relative inline-block">
-            <h2 className="text-5xl md:text-6xl font-black mb-4 relative">
+            <h2 className="text-5xl md:text-6xl font-black mb-4 relative font-heading">
               <span className="text-white">ORGANI</span>
               <span className="text-yellow-400 relative">
                 ZERS
@@ -79,7 +81,7 @@ const Organizers = () => {
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
           </div>
           
-          <p className="mt-8 text-gray-300 max-w-3xl mx-auto text-lg font-light">
+          <p className="mt-8 text-gray-300 max-w-3xl mx-auto text-lg font-light font-body">
             Meet the <span className="text-yellow-400 font-semibold">visionary minds</span> behind OpenERA hackathon
           </p>
         </div>
@@ -104,11 +106,19 @@ const Organizers = () => {
                   }}></div>
                   
                   {/* Image */}
-                  <img 
-                    src={person.image} 
-                    alt={person.name}
-                    className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
-                  />
+                  {person.image ? (
+                    <Image 
+                      src={person.image} 
+                      alt={person.name}
+                      width={300}
+                      height={300}
+                      className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gray-900">
+                      <DefaultAvatar name={person.name} size={120} />
+                    </div>
+                  )}
                   
                   {/* Overlay effects */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80"></div>
@@ -126,7 +136,7 @@ const Organizers = () => {
                   
                   {/* Name section - stacked layout for better visibility */}
                   <div className="mb-4">
-                    <h3 className="text-lg font-bold text-white group-hover:text-yellow-400 transition-colors duration-300 leading-tight">
+                    <h3 className="text-lg font-bold text-white group-hover:text-yellow-400 transition-colors duration-300 leading-tight font-heading">
                       {person.name}
                     </h3>
                     <div className="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-yellow-400 to-transparent transition-all duration-500 mt-1"></div>

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const Sponsors = () => {
   const fadeIn = {
@@ -24,18 +25,22 @@ const Sponsors = () => {
 
   // Devfolio Logo Component
   const DevfolioLogo = ({ className }: { className?: string }) => (
-    <img 
+    <Image 
       src="https://devfolio.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F055de5cb-e9de-43cf-a87e-c2c43bd5a671%2F_Dark.png?table=block&id=001376d2-c0f1-4312-971e-a6d3588181a2&spaceId=5bc094c8-987c-4274-938f-8a9d3fad1a04&width=660&userId=&cache=v2" 
       alt="DEVFOLIO LOGO" 
+      width={200}
+      height={60}
       className={`w-full h-full object-contain ${className}`}
     />
   );
 
   // Ethereum Logo Component
   const EthereumLogo = ({ className }: { className?: string }) => (
-    <img 
+    <Image 
       src="https://devfolio.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F5bc094c8-987c-4274-938f-8a9d3fad1a04%2F3a99e963-fed1-423a-81b2-8e13661c12ef%2FUntitled.png?table=block&id=b43f6ac2-f22d-4513-814d-a841fc5b6079&spaceId=5bc094c8-987c-4274-938f-8a9d3fad1a04&width=660&userId=&cache=v2" 
       alt="ETHINDIA LOGO" 
+      width={200}
+      height={60}
       className={`w-full h-full object-contain ${className}`}
     />
   );
@@ -45,33 +50,33 @@ const Sponsors = () => {
     {
       tier: "Platinum",
       sponsors: [
-        { type: "placeholder", index: 0 },
-        { type: "placeholder", index: 1 }
+        { type: "placeholder" as const },
+        { type: "placeholder" as const }
       ]
     },
     {
       tier: "Gold",
       sponsors: [
-        { type: "devfolio", component: DevfolioLogo },
-        { type: "placeholder", index: 0 },
-        { type: "placeholder", index: 1 },
-        { type: "placeholder", index: 2 }
+        { type: "devfolio" as const, component: DevfolioLogo },
+        { type: "placeholder" as const },
+        { type: "placeholder" as const },
+        { type: "placeholder" as const }
       ]
     },
     {
       tier: "Silver",
       sponsors: [
-        { type: "ethereum", component: EthereumLogo },
-        { type: "placeholder", index: 0 },
-        { type: "placeholder", index: 1 },
-        { type: "placeholder", index: 2 },
-        { type: "placeholder", index: 3 },
-        { type: "placeholder", index: 4 }
+        { type: "ethereum" as const, component: EthereumLogo },
+        { type: "placeholder" as const },
+        { type: "placeholder" as const },
+        { type: "placeholder" as const },
+        { type: "placeholder" as const },
+        { type: "placeholder" as const }
       ]
     }
   ];
 
-  const PlaceholderLogo = ({ tier, index }: { tier: string; index: number }) => (
+  const PlaceholderLogo = ({ tier }: { tier: string }) => (
     <div className="w-full h-full flex flex-col items-center justify-center text-gray-600 font-mono">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className={`${
         tier === "Platinum" ? 'w-24 h-24' : 
@@ -103,12 +108,12 @@ const Sponsors = () => {
         >
           {/* Section header */}
           <motion.div variants={fadeIn} className="mb-16 text-center">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-4xl font-bold mb-4 font-heading">
               <span className="text-white">Our</span>
               <span className="text-yellow-400"> Sponsors</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto rounded-full"></div>
-            <p className="mt-6 text-gray-300 max-w-3xl mx-auto">
+            <p className="mt-6 text-gray-300 max-w-3xl mx-auto font-body">
               OpenERA is made possible by these amazing organizations committed to innovation in AI and finance
             </p>
           </motion.div>
@@ -120,7 +125,7 @@ const Sponsors = () => {
               variants={fadeIn}
               className="mb-16 last:mb-0"
             >
-              <h3 className="text-xl font-semibold text-center text-yellow-400 mb-8">{tierData.tier} Sponsors</h3>
+              <h3 className="text-xl font-semibold text-center text-yellow-400 mb-8 font-heading">{tierData.tier} Sponsors</h3>
               
               <div className={`grid grid-cols-1 ${
                 tierData.tier === "Platinum" ? 'sm:grid-cols-2' : 
@@ -147,10 +152,10 @@ const Sponsors = () => {
                     whileHover={sponsor.type === "placeholder" ? { y: -5 } : {}}
                   >
                     {sponsor.type === "placeholder" ? (
-                      <PlaceholderLogo tier={tierData.tier} index={sponsor.index} />
-                    ) : (
+                      <PlaceholderLogo tier={tierData.tier} />
+                    ) : sponsor.component ? (
                       <sponsor.component />
-                    )}
+                    ) : null}
                   </motion.div>
                 ))}
               </div>
@@ -162,13 +167,13 @@ const Sponsors = () => {
             variants={fadeIn}
             className="mt-20 text-center"
           >
-            <h3 className="text-2xl font-semibold text-white mb-4">Become a Sponsor</h3>
-            <p className="text-gray-400 max-w-2xl mx-auto mb-8">
+            <h3 className="text-2xl font-semibold text-white mb-4 font-heading">Become a Sponsor</h3>
+            <p className="text-gray-400 max-w-2xl mx-auto mb-8 font-body">
               Interested in sponsoring OpenERA? Connect with innovators, showcase your brand, and support the next generation of fintech solutions.
             </p>
             <motion.a
               href="#contact"
-              className="inline-flex items-center px-8 py-3 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black font-medium rounded-full transition-all duration-300"
+              className="btn-enhanced inline-flex items-center px-8 py-3 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black font-medium rounded-full transition-all duration-300 font-body"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

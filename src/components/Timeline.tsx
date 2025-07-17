@@ -70,12 +70,12 @@ const Timeline = () => {
         >
           {/* Section header */}
           <motion.div variants={fadeIn} className="mb-20 text-center">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-4xl font-bold mb-4 font-heading">
               <span className="text-white">Event</span>
               <span className="text-yellow-400"> Timeline</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto rounded-full"></div>
-            <p className="mt-6 text-gray-300 max-w-3xl mx-auto">
+            <p className="mt-6 text-gray-300 max-w-3xl mx-auto font-body">
               Mark your calendars for these key dates as we progress through the OpenERA hackathon journey
             </p>
           </motion.div>
@@ -122,10 +122,17 @@ const Timeline = () => {
                     <div className={`w-full md:w-1/2 ${
                       index % 2 === 0 ? 'md:pl-10' : 'md:pr-10 md:text-right'
                     }`}>
-                      <div className="bg-gray-900/50 hover:bg-gray-900 border border-yellow-500/10 hover:border-yellow-500/30 rounded-xl p-6 transition-all duration-300">
-                        <h3 className="text-xl font-semibold text-white mb-2">{event.title}</h3>
-                        <p className="text-gray-400">{event.description}</p>
-                      </div>
+                      <motion.div 
+                        className="card-hover bg-gray-900/50 border border-yellow-500/10 rounded-xl p-6 transition-all duration-300"
+                        whileHover={{ 
+                          scale: 1.02, 
+                          y: -4,
+                          transition: { type: "spring", stiffness: 300, damping: 20 }
+                        }}
+                      >
+                        <h3 className="text-xl font-semibold text-white mb-2 font-heading">{event.title}</h3>
+                        <p className="text-gray-400 font-body">{event.description}</p>
+                      </motion.div>
                     </div>
                   </motion.div>
                 </div>

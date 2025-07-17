@@ -17,7 +17,8 @@ const ProblemStatements = () => {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.15,
+        delayChildren: 0.3
       }
     }
   };
@@ -104,12 +105,12 @@ const ProblemStatements = () => {
         >
           {/* Section header */}
           <motion.div variants={fadeInUp} className="mb-16 text-center">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-4xl font-bold mb-4 font-heading">
               <span className="text-white">Problem</span>
               <span className="text-yellow-400"> Statements</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto rounded-full"></div>
-            <p className="mt-6 text-gray-300 max-w-3xl mx-auto">
+            <p className="mt-6 text-gray-300 max-w-3xl mx-auto font-body">
               Locked challenges awaiting your innovative solutions. Problem statements will be revealed at the start of the hackathon.
               Get ready to tackle real-world AI and finance challenges.
             </p>
@@ -125,26 +126,27 @@ const ProblemStatements = () => {
                 key={index}
                 variants={fadeInUp}
                 whileHover={{ 
-                  y: -5, 
-                  boxShadow: "0 0 15px 2px rgba(250, 204, 21, 0.3)",
-                  transition: { duration: 0.2 }
+                  y: -8, 
+                  scale: 1.02,
+                  boxShadow: "0 0 25px 5px rgba(250, 204, 21, 0.3)",
+                  transition: { type: "spring", stiffness: 300, damping: 20 }
                 }}
-                className="relative bg-gray-900 border border-yellow-400/10 rounded-xl p-8 overflow-hidden group min-h-[280px] flex flex-col justify-between"
+                className="card-hover relative bg-gray-900 border border-yellow-400/10 rounded-xl p-8 overflow-hidden group min-h-[280px] flex flex-col justify-between"
               >
                 <NeonBorder />
                 
                 {/* Card content */}
                 <div>
                   <div className="flex justify-between items-start mb-6">
-                    <h3 className="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300 font-heading">
                       {problem.title}
                     </h3>
-                    <span className="bg-gray-800 text-yellow-400 text-xs font-bold px-2 py-1 rounded">
+                    <span className="bg-gray-800 text-yellow-400 text-xs font-bold px-2 py-1 rounded font-body">
                       {problem.code}
                     </span>
                   </div>
 
-                  <p className="text-gray-400 mb-6 text-sm">Theme: {problem.theme}</p>
+                  <p className="text-gray-400 mb-6 text-sm font-body">Theme: {problem.theme}</p>
                 </div>
                 
                 {/* Lock indicator */}

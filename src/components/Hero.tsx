@@ -213,7 +213,7 @@ const Hero: React.FC = () => {
               className="filter drop-shadow-xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             />
           </div>
-          <h1 className="text-6xl md:text-7xl font-extrabold text-white mb-3 tracking-tight">
+          <h1 className="text-6xl md:text-7xl font-extrabold text-white mb-3 tracking-tight font-heading">
             Open<span className="text-yellow-400">ERA</span>
           </h1>
           
@@ -223,7 +223,7 @@ const Hero: React.FC = () => {
         {/* Hackathon subtitle */}
         <motion.h2 
           variants={itemVariants} 
-          className="text-2xl md:text-3xl font-light text-white/90 mb-4 tracking-wide"
+          className="text-2xl md:text-3xl font-light text-white/90 mb-4 tracking-wide font-body"
         >
           <span className="font-medium">AI</span> + <span className="font-medium">Finance</span> Hackathon
         </motion.h2>
@@ -275,7 +275,7 @@ const Hero: React.FC = () => {
         
         {/* Description */}
         <motion.div variants={itemVariants} className="mb-12">
-          <p className="text-white/80 text-lg leading-relaxed font-light max-w-3xl mx-auto">
+          <p className="text-white/80 text-lg leading-relaxed font-light max-w-3xl mx-auto font-body">
             Join the revolution where <span className="text-yellow-400 font-medium">AI meets finance</span>. Build groundbreaking solutions, 
             compete with brilliant minds, and shape the next generation of financial technology.
           </p>
@@ -308,7 +308,7 @@ const Hero: React.FC = () => {
           
           <motion.a
             href="#about"
-            className="px-8 py-3 bg-transparent text-white border border-white/20 hover:border-yellow-400/40 hover:text-yellow-400 rounded-full text-lg transition-all duration-300"
+            className="btn-enhanced px-8 py-3 bg-transparent text-white border border-white/20 hover:border-yellow-400/40 hover:text-yellow-400 rounded-full text-lg transition-all duration-300 font-body"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >

@@ -82,12 +82,12 @@ const FAQ = () => {
         >
           {/* Section header */}
           <motion.div variants={fadeIn} className="mb-16 text-center">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-4xl font-bold mb-4 font-heading">
               <span className="text-white">Frequently Asked</span>
               <span className="text-yellow-400"> Questions</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto rounded-full"></div>
-            <p className="mt-6 text-gray-300 max-w-3xl mx-auto">
+            <p className="mt-6 text-gray-300 max-w-3xl mx-auto font-body">
               Everything you need to know about the OpenERA hackathon
             </p>
           </motion.div>
@@ -104,7 +104,7 @@ const FAQ = () => {
                   className="w-full px-6 py-4 flex justify-between items-center text-left bg-gray-900/70 hover:bg-gray-900 transition-all"
                   onClick={() => toggleQuestion(index)}
                 >
-                  <h3 className="text-lg font-medium text-white">{item.question}</h3>
+                  <h3 className="text-lg font-medium text-white font-heading">{item.question}</h3>
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     fill="none" 
@@ -125,7 +125,7 @@ const FAQ = () => {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="p-6 bg-gray-900/30 text-gray-300">
+                      <div className="p-6 bg-gray-900/30 text-gray-300 font-body">
                         {item.answer}
                       </div>
                     </motion.div>

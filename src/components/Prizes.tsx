@@ -2,6 +2,8 @@
 
 import React, { useRef } from 'react';
 import { motion, useInView, Variants } from 'framer-motion';
+import Image from 'next/image';
+import DefaultAvatar from './DefaultAvatar';
 
 const Prizes = () => {
   // Refs for sections that will be lazy loaded
@@ -203,12 +205,12 @@ const Prizes = () => {
         >
           {/* Section header */}
           <motion.div variants={fadeIn} className="mb-16 text-center">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-4xl font-bold mb-4 font-heading">
               <span className="text-white">Premium</span>
               <span className="text-yellow-400"> Prizes</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto rounded-full"></div>
-            <p className="mt-6 text-gray-300 max-w-3xl mx-auto">
+            <p className="mt-6 text-gray-300 max-w-3xl mx-auto font-body">
               Compete for these exclusive awards and opportunities, valued at over $50,000
             </p>
           </motion.div>
@@ -219,12 +221,16 @@ const Prizes = () => {
               <motion.div
                 key={index}
                 variants={fadeIn}
-                className={`bg-gray-900 border ${prize.borderColor} rounded-xl overflow-hidden ${prize.shadowColor} hover:shadow-lg transition-all duration-300`}
+                className={`card-hover bg-gray-900 border ${prize.borderColor} rounded-xl overflow-hidden transition-all duration-300`}
                 style={{ 
                   zIndex: 10 - index,
                   transform: `scale(${prize.scale}) translateY(${prize.translate}px)` 
                 }}
-                whileHover={{ y: -5 }}
+                whileHover={{ 
+                  y: -8, 
+                  scale: prize.scale * 1.02,
+                  transition: { type: "spring", stiffness: 300, damping: 20 }
+                }}
               >
                 <div className={`h-2 bg-gradient-to-r ${prize.color}`}></div>
                 <div className="p-8 text-center relative z-10">
@@ -288,14 +294,24 @@ const Prizes = () => {
                     >
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 z-10"></div>
                       <div className="relative z-20 p-6 flex flex-col items-center">
-                        <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-yellow-500/30 mb-5 group-hover:border-yellow-400 transition-colors duration-300">
-                          <div className="w-full h-full bg-gray-800 flex items-center justify-center text-4xl">
-                            {judge.name.charAt(0)}
-                          </div>
+                        <div className="mb-5 group-hover:scale-105 transition-transform duration-300">
+                          {judge.image ? (
+                            <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-yellow-500/30 group-hover:border-yellow-400 transition-colors duration-300">
+                              <Image
+                                src={judge.image}
+                                alt={judge.name}
+                                width={128}
+                                height={128}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          ) : (
+                            <DefaultAvatar name={judge.name} size={128} className="border-2 border-yellow-500/30 group-hover:border-yellow-400 transition-colors duration-300" />
+                          )}
                         </div>
-                        <h4 className="text-xl font-bold text-white mb-1">{judge.name}</h4>
-                        <p className="text-yellow-400 font-medium text-sm mb-3">{judge.title}</p>
-                        <div className="px-4 py-1 rounded-full bg-yellow-400/10 text-yellow-400 text-xs font-medium">
+                        <h4 className="text-xl font-bold text-white mb-1 font-heading">{judge.name}</h4>
+                        <p className="text-yellow-400 font-medium text-sm mb-3 font-body">{judge.title}</p>
+                        <div className="px-4 py-1 rounded-full bg-yellow-400/10 text-yellow-400 text-xs font-medium font-body">
                           {judge.expertise}
                         </div>
                       </div>
@@ -316,7 +332,7 @@ const Prizes = () => {
           <div ref={mentorsRef} className="mb-20 relative">
             {mentorsInView && (
               <>
-                <h3 className="text-3xl font-semibold text-white text-center mb-4">
+                <h3 className="text-3xl font-semibold text-white text-center mb-4 font-heading">
                   <span className="relative inline-block">
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-200">
                       Expert Mentors
@@ -329,7 +345,7 @@ const Prizes = () => {
                     />
                   </span>
                 </h3>
-                <p className="text-gray-400 text-center max-w-2xl mx-auto mb-12">
+                <p className="text-gray-400 text-center max-w-2xl mx-auto mb-12 font-body">
                   Connect with industry-leading mentors who will guide, support, and elevate your hackathon project
                 </p>
 
@@ -340,19 +356,18 @@ const Prizes = () => {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: Math.min(index * 0.05, 0.3), duration: 0.3 }}
-                      className="bg-gradient-to-br from-gray-900 to-black border border-yellow-500/10 rounded-lg p-4 hover:border-yellow-400/30 transition-all duration-300"
+                      className="card-hover bg-gradient-to-br from-gray-900 to-black border border-yellow-500/10 rounded-lg p-4 transition-all duration-300"
+                      whileHover={{ scale: 1.05 }}
                     >
                       <div className="flex items-center space-x-3">
-                        <div className="w-12 h-12 rounded-full bg-yellow-400/10 flex items-center justify-center text-lg text-yellow-400 font-medium">
-                          {mentor.name.charAt(0)}
-                        </div>
+                        <DefaultAvatar name={mentor.name} size={48} />
                         <div>
-                          <h4 className="text-white font-medium">{mentor.name}</h4>
-                          <p className="text-gray-400 text-xs">{mentor.company}</p>
+                          <h4 className="text-white font-medium font-body">{mentor.name}</h4>
+                          <p className="text-gray-400 text-xs font-body">{mentor.company}</p>
                         </div>
                       </div>
                       <div className="mt-3">
-                        <span className="inline-block px-2 py-1 bg-yellow-400/10 rounded-md text-yellow-400 text-xs">
+                        <span className="inline-block px-2 py-1 bg-yellow-400/10 rounded-md text-yellow-400 text-xs font-body">
                           {mentor.expertise}
                         </span>
                       </div>
