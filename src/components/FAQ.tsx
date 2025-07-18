@@ -60,12 +60,7 @@ const FAQ = () => {
 ];
 
   return (
-    <section id="faq" className="py-12 md:py-16 lg:py-20 bg-gray-950 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-transparent z-10"></div>
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent z-10"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(#ffffff05_1px,transparent_1px)] [background-size:32px_32px]"></div>
-      
+    <section id="faq" className="py-12 md:py-16 lg:py-2 relative overflow-hidden">
       {/* Yellow accent */}
       <div className="absolute top-40 -right-32 w-64 h-64 bg-yellow-400/10 rounded-full filter blur-3xl"></div>
       
@@ -97,7 +92,7 @@ const FAQ = () => {
                 className="border border-yellow-500/10 rounded-xl overflow-hidden hover:border-yellow-500/30 transition-all duration-300"
               >
                 <button 
-                  className="w-full px-6 py-4 flex justify-between items-center text-left bg-gray-900/70 hover:bg-gray-900 transition-all"
+                  className="w-full px-6 py-4 flex justify-between items-center cursor-pointer text-left bg-gray-900/70 hover:bg-gray-900 transition-all"
                   onClick={() => toggleQuestion(index)}
                 >
                   <h3 className="text-lg font-medium text-white font-heading">{item.question}</h3>
