@@ -1,19 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { RiTwitterXLine } from "react-icons/ri";
 
 export default function Footer() {
-  const fadeIn = {
-    hidden: { opacity: 0, y: 100 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.6 }
-    }
-  };
-
   // Smooth scroll function
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -29,24 +19,11 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black border-t border-yellow-500/20 py-16">
+    <footer className="bg-gray-900 border-t border-yellow-500/20 py-16 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={{
-            hidden: {},
-            visible: {
-              transition: {
-                staggerChildren: 0.1
-              }
-            }
-          }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
-          <motion.div variants={fadeIn} className="col-span-1 md:col-span-1">
+          <div className="col-span-1 md:col-span-1">
             <div className="flex items-center mb-4">
               <Image
                 src="/logo.png"
@@ -101,10 +78,10 @@ export default function Footer() {
                 </div>
               </a>
             </div>
-          </motion.div>
+          </div>
 
           {/* Quick Links */}
-          <motion.div variants={fadeIn} className="col-span-1">
+          <div className="col-span-1">
             <h4 className="text-white font-semibold mb-6 text-lg">Quick Links</h4>
             <ul className="space-y-3">
               {[
@@ -123,10 +100,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
           {/* More Links */}
-          <motion.div variants={fadeIn} className="col-span-1">
+          <div className="col-span-1">
             <h4 className="text-white font-semibold mb-6 text-lg">More</h4>
             <ul className="space-y-3">
               {[
@@ -144,10 +121,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
           {/* Contact */}
-          <motion.div variants={fadeIn} className="col-span-1">
+          <div className="col-span-1">
             <h4 className="text-white font-semibold mb-6 text-lg">Contact</h4>
             <ul className="space-y-4">
               <li className="flex items-start">
@@ -164,16 +141,10 @@ export default function Footer() {
                 <span className="text-gray-400">NIT Jalandhar, Punjab, India</span>
               </li>
             </ul>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
-        <motion.div 
-          variants={fadeIn}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
-        >
+        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           {/* Copyright */}
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
             © 2025 OpenERA. All rights reserved.
@@ -190,7 +161,7 @@ export default function Footer() {
               Code of Conduct
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );
