@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { RiLinkedinFill, RiTwitterXLine, RiInstagramLine } from 'react-icons/ri';
-import DefaultAvatar from './DefaultAvatar';
 
 const Organizers = () => {
   // Organizer details
@@ -77,7 +76,9 @@ const Organizers = () => {
                     />
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-yellow-400/20 to-yellow-600/10 flex items-center justify-center">
-                      <DefaultAvatar name={person.name} size={140} />
+                      <div className="text-6xl font-bold text-yellow-400">
+                        {person.name.split(' ').map(n => n[0]).join('')}
+                      </div>
                     </div>
                   )}
                   
