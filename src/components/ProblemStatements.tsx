@@ -87,14 +87,26 @@ const ProblemStatements = () => {
   );
 
   return (
-    <section id="problem-statements" className="py-24 bg-gray-950 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-transparent z-10"></div>
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent z-10"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(#ffffff05_1px,transparent_1px)] [background-size:32px_32px]"></div>
+    <section id="problem-statements" className="py-24 relative overflow-hidden section-border" style={{ background: 'rgba(15, 15, 23, 0.3)' }}>
+      {/* Enhanced blueprint integration */}
+      <div className="absolute inset-0 opacity-[0.008]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.12) 2px, transparent 3px),
+              radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.08) 1px, transparent 2px),
+              radial-gradient(circle at 50% 90%, rgba(255, 215, 0, 0.06) 1.5px, transparent 2.5px)
+            `,
+            backgroundSize: '200px 200px, 150px 150px, 180px 180px',
+            animation: 'breathe 12s ease-in-out infinite alternate'
+          }}
+        />
+      </div>
       
-      {/* Yellow accent */}
-      <div className="absolute bottom-40 -left-32 w-64 h-64 bg-yellow-400/10 rounded-full filter blur-3xl"></div>
+      {/* Lock-themed data streams */}
+      <div className="absolute left-0 top-2/3 w-full h-px opacity-[0.008] bg-gradient-to-r from-transparent via-yellow-400 to-transparent" 
+           style={{ animation: 'dataStream 25s linear infinite' }} />
       
       <div className="container max-w-7xl mx-auto px-6 relative z-20">
         <motion.div

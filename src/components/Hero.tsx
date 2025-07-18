@@ -144,53 +144,61 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen w-full flex flex-col items-center justify-center pt-8 relative overflow-hidden bg-black" ref={containerRef}>
-      {/* Sophisticated background effects */}
+    <section id="home" className="min-h-screen w-full flex flex-col items-center justify-center pt-8 relative overflow-hidden" ref={containerRef}>
+      {/* Enhanced background effects that work with living blueprint */}
       <div className="absolute inset-0 z-0">
-        {/* Subtle dot pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
+        {/* Subtle interaction with blueprint grid */}
+        <motion.div 
+          className="absolute inset-0 opacity-[0.02]"
           style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.8) 1px, transparent 0)`,
-            backgroundSize: '40px 40px'
+            background: `radial-gradient(
+              circle at ${mousePosition.x}px ${mousePosition.y}px,
+              rgba(255, 215, 0, 0.1) 0%,
+              rgba(255, 215, 0, 0.05) 20%,
+              transparent 60%
+            )`
           }}
         />
         
-        {/* Gradient orbs for depth */}
+        {/* Floating energy orbs that complement the neural network */}
         <motion.div 
-          className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full opacity-[0.08]"
+          className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full opacity-[0.04]"
           style={{
-            background: 'radial-gradient(circle, rgba(255,215,0,0.15) 0%, rgba(255,215,0,0.03) 50%, transparent 100%)',
-            filter: 'blur(100px)'
+            background: 'radial-gradient(circle, rgba(255,215,0,0.2) 0%, rgba(255,215,0,0.05) 40%, transparent 70%)',
+            filter: 'blur(80px)'
           }}
           variants={floatingVariants}
           animate="animate"
         />
         
         <motion.div 
-          className="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] rounded-full opacity-[0.06]"
+          className="absolute bottom-1/3 left-1/4 w-[350px] h-[350px] rounded-full opacity-[0.03]"
           style={{
-            background: 'radial-gradient(circle, rgba(255,165,0,0.12) 0%, rgba(255,165,0,0.02) 50%, transparent 100%)',
-            filter: 'blur(120px)'
+            background: 'radial-gradient(circle, rgba(255,165,0,0.15) 0%, rgba(255,165,0,0.03) 40%, transparent 70%)',
+            filter: 'blur(100px)'
           }}
           variants={floatingVariants}
           animate="animate"
           transition={{ delay: 2 }}
         />
         
-        {/* Subtle cursor follow effect */}
-        <div 
-          className="absolute pointer-events-none w-[400px] h-[400px] rounded-full opacity-[0.03] transition-all duration-1000 ease-out"
-          style={{ 
-            left: `${mousePosition.x - 200}px`, 
-            top: `${mousePosition.y - 200}px`,
-            background: 'radial-gradient(circle, rgba(255,215,0,0.2) 0%, transparent 70%)',
-            filter: 'blur(60px)'
-          }}
-        />
-
-        {/* Grid pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff10_1px,transparent_1px)] [background-size:40px_40px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+        {/* Data stream effects inspired by financial trading */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div 
+            className="absolute top-1/3 left-0 w-full h-px opacity-[0.03]"
+            style={{
+              background: 'linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.6), transparent)',
+              animation: 'dataStream 15s linear infinite'
+            }}
+          />
+          <div 
+            className="absolute top-2/3 left-0 w-full h-px opacity-[0.02]"
+            style={{
+              background: 'linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent)',
+              animation: 'dataStream 12s linear infinite reverse'
+            }}
+          />
+        </div>
       </div>
       
       <motion.div 
@@ -308,7 +316,7 @@ const Hero: React.FC = () => {
           
           <motion.a
             href="#about"
-            className="btn-enhanced px-8 py-3 bg-transparent text-white border border-white/20 hover:border-yellow-400/40 hover:text-yellow-400 rounded-full text-lg transition-all duration-300 font-body"
+            className="blueprint-btn px-8 py-3 rounded-full text-lg transition-all duration-300 font-body"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -329,7 +337,7 @@ const Hero: React.FC = () => {
               { value: timeLeft.seconds, label: "Seconds" }
             ].map((item, i) => (
               <div key={i} className="flex flex-col items-center">
-                <div className="text-2xl sm:text-4xl font-bold text-white bg-gray-900 p-3 sm:p-4 rounded-lg w-16 sm:w-20 border border-yellow-500/20">
+                <div className="blueprint-card text-2xl sm:text-4xl font-bold text-white p-3 sm:p-4 rounded-lg w-16 sm:w-20">
                   {item.value}
                 </div>
                 <div className="text-xs sm:text-sm text-yellow-500 mt-2 font-mono tracking-wider">

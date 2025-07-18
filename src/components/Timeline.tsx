@@ -47,12 +47,25 @@ const Timeline = () => {
   ];
 
   return (
-    <section id="timeline" className="py-24 bg-black relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(#ffffff05_1px,transparent_1px)] [background-size:32px_32px]"></div>
+    <section id="timeline" className="py-24 relative overflow-hidden section-border">
+      {/* Blueprint-inspired background elements */}
+      <div className="absolute inset-0 opacity-[0.006]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(45deg, rgba(255, 215, 0, 0.08) 1px, transparent 1px),
+              linear-gradient(-45deg, rgba(255, 215, 0, 0.05) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px, 80px 80px',
+            animation: 'gridPulse 10s ease-in-out infinite alternate'
+          }}
+        />
+      </div>
       
-      {/* Yellow accent */}
-      <div className="absolute top-40 -right-32 w-64 h-64 bg-yellow-400/10 rounded-full filter blur-3xl"></div>
+      {/* Timeline data streams */}
+      <div className="absolute right-0 top-1/4 w-full h-px opacity-[0.01] bg-gradient-to-l from-transparent via-yellow-400 to-transparent" 
+           style={{ animation: 'dataStream 18s linear infinite reverse' }} />
       
       <div className="container max-w-7xl mx-auto px-6 relative z-20">
         <motion.div

@@ -21,18 +21,30 @@ const About = () => {
         delayChildren: 0.2,
       },
     },
-  };
-
-  return (
-    <section id="about" className="py-24 bg-black relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-transparent z-10"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(#ffffff05_1px,transparent_1px)] [background-size:32px_32px]"></div>
-
-      {/* Yellow accent */}
-      <div className="absolute top-40 -left-64 w-96 h-96 bg-yellow-400/10 rounded-full filter blur-3xl"></div>
-      <div className="absolute bottom-20 -right-64 w-96 h-96 bg-yellow-500/5 rounded-full filter blur-3xl"></div>
-
+  };  return (
+    <section id="about" className="py-24 relative overflow-hidden section-border">
+      {/* Enhanced background elements for blueprint integration */}
+      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-transparent via-black/50 to-transparent z-10"></div>
+      
+      {/* Localized blueprint effects */}
+      <div className="absolute inset-0 opacity-[0.008]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 30% 40%, rgba(255, 215, 0, 0.1) 1px, transparent 2px),
+              radial-gradient(circle at 70% 60%, rgba(255, 215, 0, 0.08) 1px, transparent 2px)
+            `,
+            backgroundSize: '120px 120px, 180px 180px',
+            animation: 'neuralGlow 8s ease-in-out infinite alternate'
+          }}
+        />
+      </div>
+      
+      {/* Subtle data flow lines */}
+      <div className="absolute left-0 top-1/3 w-full h-px opacity-[0.015] bg-gradient-to-r from-transparent via-yellow-400 to-transparent" 
+           style={{ animation: 'dataStream 20s linear infinite' }} />
+      
       <div className="container max-w-7xl mx-auto px-6 relative z-20">
         <motion.div
           initial="hidden"
