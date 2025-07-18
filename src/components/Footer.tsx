@@ -181,9 +181,14 @@ export default function Footer() {
 
           {/* Legal links */}
           <div className="flex space-x-6">
-            <a href="#privacy" className="text-gray-500 hover:text-yellow-400 text-sm transition-colors">Privacy Policy</a>
-            <a href="#terms" className="text-gray-500 hover:text-yellow-400 text-sm transition-colors">Terms of Service</a>
-            <a href="#cookies" className="text-gray-500 hover:text-yellow-400 text-sm transition-colors">Cookie Policy</a>
+            <a 
+              href="https://devfolio.co/code-of-conduct" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-yellow-400 text-sm transition-colors"
+            >
+              Code of Conduct
+            </a>
           </div>
         </motion.div>
       </div>
