@@ -77,7 +77,7 @@ export default function Navbar() {
               </motion.a>
             ))}
             <motion.a
-              href="#register"
+              href="/register"
               className="ml-4 px-6 py-2 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black rounded-full font-semibold text-sm uppercase tracking-wider"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -134,7 +134,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="#register"
+              href="/register"
               className="block px-3 py-2 mt-4 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black rounded-md font-medium text-sm uppercase tracking-wider text-center"
               onClick={() => setMobileMenuOpen(false)}
             >
