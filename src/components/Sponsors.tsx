@@ -92,7 +92,7 @@ const Sponsors = () => {
   );
 
   return (
-    <section id="sponsors" className="py-24 bg-black relative overflow-hidden">
+    <section id="sponsors" className="py-12 md:py-16 lg:py-20 bg-black relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 bg-[radial-gradient(#ffffff05_1px,transparent_1px)] [background-size:32px_32px]"></div>
       

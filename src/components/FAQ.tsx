@@ -29,42 +29,38 @@ const FAQ = () => {
   };
 
   const faqData = [
-    {
-      question: "Who can participate in OpenERA?",
-      answer: "OpenERA is open to developers, data scientists, designers, financial experts, and innovators of all backgrounds. Participants must be at least 18 years old and can form teams of up to 4 members."
-    },
-    {
-      question: "Is there a registration fee?",
-      answer: "No, participation in OpenERA is completely free. We believe in making innovation accessible to everyone with a passion for AI and finance."
-    },
-    {
-      question: "Do I need to have a team to register?",
-      answer: "No, you can register as an individual and form a team later. We'll have team formation sessions before the hackathon begins to help you find teammates with complementary skills."
-    },
-    {
-      question: "What should I bring to the hackathon?",
-      answer: "Bring your laptop, charger, and any other devices you'll need for development. For in-person participants, consider bringing personal items for comfort during the 48-hour event."
-    },
-    {
-      question: "Is OpenERA an online or in-person event?",
-      answer: "OpenERA is a hybrid event. You can participate either online or in-person at our New York City venue. Both formats offer equal opportunities to win prizes and connect with mentors."
-    },
-    {
-      question: "What kind of projects are expected?",
-      answer: "We're looking for innovative solutions at the intersection of AI and finance across our four tracks: AI Trading Systems, Financial Inclusion, Decentralized Finance, and Wealth Management."
-    },
-    {
-      question: "Do we own the intellectual property of our projects?",
-      answer: "Yes, teams retain full ownership of their projects. However, to qualify for prizes, your solution must be publicly available (open-source or as a demo) for judging."
-    },
-    {
-      question: "Are there resources available for participants?",
-      answer: "Absolutely! Participants will have access to workshops, mentors, API credits from our sponsors, and various development tools to help build your solutions."
-    }
-  ];
+  {
+    question: "Who can join OpenERA?",
+    answer: "If you're 18+ and doing your Bachelor's, you're in! Developers, designers, finance geeks – all welcome!"
+  },
+  {
+    question: "Do I need a team?",
+    answer: "Yep! Teams of 2 to 4 are required. Flying solo? We’ll help you find your dream squad!"
+  },
+  {
+    question: "Is it online or offline?",
+    answer: "Round 1 is online. If you ace it, you’re heading to the offline finals!"
+  },
+  {
+    question: "Where’s the offline round?",
+    answer: "The final showdown is happening live at our venue in New York City!"
+  },
+  {
+    question: "What projects are you expecting?",
+    answer: "Bring us working AI/ML-based apps solving cool finance problems. Impress us!"
+  },
+  {
+    question: "Who owns our project?",
+    answer: "You do! Just make sure it's open-source or demo-ready for judging."
+  },
+  {
+    question: "Any help for us?",
+    answer: "Loads! Expect mentors, workshops, dev tools, and API credits from our partners!"
+  }
+];
 
   return (
-    <section id="faq" className="py-24 bg-gray-950 relative overflow-hidden">
+    <section id="faq" className="py-12 md:py-16 lg:py-20 bg-gray-950 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-transparent z-10"></div>
       <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent z-10"></div>

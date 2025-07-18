@@ -32,7 +32,7 @@ const Organizers = () => {
   ];
 
   return (
-    <section id="organizers" className="py-24 bg-black relative overflow-hidden">
+    <section id="organizers" className="py-12 md:py-16 lg:py-20 bg-black relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0">
         {/* Circuit-like pattern */}

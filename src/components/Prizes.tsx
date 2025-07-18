@@ -187,7 +187,7 @@ const Prizes = () => {
   ];
 
   return (
-    <section id="prizes" className="py-24 bg-gray-950 relative overflow-hidden">
+    <section id="prizes" className="py-12 md:py-16 lg:py-20 bg-gray-950 relative overflow-hidden">
       {/* Simplified background elements - reduced blur radius */}
       <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-transparent z-10"></div>
       <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent z-10"></div>

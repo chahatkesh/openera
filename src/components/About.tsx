@@ -22,7 +22,7 @@ const About = () => {
       },
     },
   };  return (
-    <section id="about" className="py-24 relative overflow-hidden section-border">
+    <section id="about" className="py-12 md:py-16 lg:py-20 relative overflow-hidden section-border">
       {/* Enhanced background elements for blueprint integration */}
       <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-transparent via-black/50 to-transparent z-10"></div>
       

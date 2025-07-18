@@ -47,7 +47,7 @@ const Timeline = () => {
   ];
 
   return (
-    <section id="timeline" className="py-16 relative overflow-hidden">
+    <section id="timeline" className="py-12 md:py-16 lg:py-20 relative overflow-hidden">
       <div className="container max-w-5xl mx-auto px-6 relative z-20">
         <motion.div
           initial="hidden"
