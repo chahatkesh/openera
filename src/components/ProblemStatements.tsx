@@ -23,92 +23,9 @@ const ProblemStatements = () => {
     }
   };
 
-  // Problem statement cards (locked state)
-  const problemStatements = [
-    {
-      title: "Decentralized Identity Verification",
-      code: "PS001",
-      status: "Locked",
-      theme: "Financial Security",
-    },
-    {
-      title: "AI-Powered Risk Assessment",
-      code: "PS002",
-      status: "Locked",
-      theme: "Investment Analysis",
-    },
-    {
-      title: "Inclusive Banking Solutions",
-      code: "PS003", 
-      status: "Locked",
-      theme: "Financial Inclusion",
-    },
-    {
-      title: "Blockchain Compliance System",
-      code: "PS004",
-      status: "Locked",
-      theme: "Regulatory Technology",
-    },
-    {
-      title: "Sustainable Finance Platform",
-      code: "PS005",
-      status: "Locked",
-      theme: "ESG Investing",
-    }
-  ];
-
-  // Neon border effect component
-  const NeonBorder = () => (
-    <>
-      {/* Top left corner */}
-      <div className="absolute top-0 left-0">
-        <div className="h-8 w-1 bg-yellow-400 shadow-[0_0_10px_3px_rgba(250,204,21,0.7)]"></div>
-        <div className="h-1 w-8 bg-yellow-400 shadow-[0_0_10px_3px_rgba(250,204,21,0.7)]"></div>
-      </div>
-      
-      {/* Top right corner */}
-      <div className="absolute top-0 right-0">
-        <div className="h-8 w-1 bg-yellow-400 shadow-[0_0_10px_3px_rgba(250,204,21,0.7)]"></div>
-        <div className="h-1 w-8 bg-yellow-400 shadow-[0_0_10px_3px_rgba(250,204,21,0.7)]"></div>
-      </div>
-      
-      {/* Bottom right corner */}
-      <div className="absolute bottom-0 right-0">
-        <div className="h-8 w-1 bg-yellow-400 shadow-[0_0_10px_3px_rgba(250,204,21,0.7)]"></div>
-        <div className="h-1 w-8 bg-yellow-400 shadow-[0_0_10px_3px_rgba(250,204,21,0.7)]"></div>
-      </div>
-      
-      {/* Bottom left corner */}
-      <div className="absolute bottom-0 left-0">
-        <div className="h-8 w-1 bg-yellow-400 shadow-[0_0_10px_3px_rgba(250,204,21,0.7)]"></div>
-        <div className="h-1 w-8 bg-yellow-400 shadow-[0_0_10px_3px_rgba(250,204,21,0.7)]"></div>
-      </div>
-    </>
-  );
-
   return (
-    <section id="problem-statements" className="py-24 relative overflow-hidden section-border" style={{ background: 'rgba(15, 15, 23, 0.3)' }}>
-      {/* Enhanced blueprint integration */}
-      <div className="absolute inset-0 opacity-[0.008]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.12) 2px, transparent 3px),
-              radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.08) 1px, transparent 2px),
-              radial-gradient(circle at 50% 90%, rgba(255, 215, 0, 0.06) 1.5px, transparent 2.5px)
-            `,
-            backgroundSize: '200px 200px, 150px 150px, 180px 180px',
-            animation: 'breathe 12s ease-in-out infinite alternate'
-          }}
-        />
-      </div>
-      
-      {/* Lock-themed data streams */}
-      <div className="absolute left-0 top-2/3 w-full h-px opacity-[0.008] bg-gradient-to-r from-transparent via-yellow-400 to-transparent" 
-           style={{ animation: 'dataStream 25s linear infinite' }} />
-      
-      <div className="container max-w-7xl mx-auto px-6 relative z-20">
+    <section id="problem-statements" className="py-16 relative overflow-hidden">
+      <div className="container max-w-6xl mx-auto px-6 relative z-20">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -116,90 +33,65 @@ const ProblemStatements = () => {
           variants={staggerContainer}
         >
           {/* Section header */}
-          <motion.div variants={fadeInUp} className="mb-16 text-center">
-            <h2 className="text-4xl font-bold mb-4 font-heading">
+          <motion.div variants={fadeInUp} className="mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="text-white">Problem</span>
               <span className="text-yellow-400"> Statements</span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto rounded-full"></div>
-            <p className="mt-6 text-gray-300 max-w-3xl mx-auto font-body">
-              Locked challenges awaiting your innovative solutions. Problem statements will be revealed at the start of the hackathon.
-              Get ready to tackle real-world AI and finance challenges.
+            <div className="w-16 h-0.5 bg-yellow-400 mx-auto rounded-full mb-4"></div>
+            <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
+              Multiple rounds of challenges at the intersection of AI and Finance.
             </p>
           </motion.div>
 
-          {/* Problem statement grid */}
-          <motion.div 
-            variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {problemStatements.map((problem, index) => (
+          {/* Round 1 Problem Statement */}
+          <motion.div variants={fadeInUp} className="mb-16">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-white mb-2">Round 1</h3>
+              <p className="text-gray-400 text-sm">Online Qualification Round</p>
+            </div>
+            
+            <div className="max-w-2xl mx-auto">
               <motion.div
-                key={index}
                 variants={fadeInUp}
                 whileHover={{ 
-                  y: -8, 
-                  scale: 1.02,
-                  boxShadow: "0 0 25px 5px rgba(250, 204, 21, 0.3)",
+                  y: -4, 
                   transition: { type: "spring", stiffness: 300, damping: 20 }
                 }}
-                className="card-hover relative bg-gray-900 border border-yellow-400/10 rounded-xl p-8 overflow-hidden group min-h-[280px] flex flex-col justify-between"
+                className="relative bg-gradient-to-br from-yellow-400/10 to-yellow-600/5 border border-yellow-400/30 rounded-lg p-8 backdrop-blur-sm"
               >
-                <NeonBorder />
-                
-                {/* Card content */}
-                <div>
-                  <div className="flex justify-between items-start mb-6">
-                    <h3 className="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors duration-300 font-heading">
-                      {problem.title}
-                    </h3>
-                    <span className="bg-gray-800 text-yellow-400 text-xs font-bold px-2 py-1 rounded font-body">
-                      {problem.code}
+                <div className="text-center">
+                  <div className="mb-4">
+                    <span className="bg-yellow-400/20 text-yellow-400 text-xs font-medium px-3 py-1 rounded-full border border-yellow-400/30">
+                      R1-PS001
+                    </span>
+                    <span className="ml-2 bg-gray-500/20 text-gray-400 text-xs font-medium px-3 py-1 rounded-full border border-gray-400/20">
+                      Coming Soon
                     </span>
                   </div>
 
-                  <p className="text-gray-400 mb-6 text-sm font-body">Theme: {problem.theme}</p>
-                </div>
-                
-                {/* Lock indicator */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <span className="mr-2 text-yellow-400">🔒</span>
-                    <span className="text-sm text-yellow-400 font-medium">
-                      {problem.status}
-                    </span>
-                  </div>
+                  <h4 className="text-xl font-semibold text-white mb-3 leading-tight">
+                    Round 1 Problem Statement
+                  </h4>
+
+                  <p className="text-gray-400 text-sm mb-4">Online Qualification Challenge</p>
                   
-                  <div className="bg-gray-800 bg-opacity-50 rounded-lg px-3 py-1 text-sm">
-                    <motion.div
-                      animate={{ opacity: [0.5, 1, 0.5] }}
-                      transition={{ 
-                        duration: 2, 
-                        repeat: Infinity, 
-                        repeatType: "reverse" 
-                      }}
-                      className="text-yellow-400"
-                    >
-                      Unlocks at kickoff
-                    </motion.div>
-                  </div>
+                  <p className="text-yellow-400 text-sm mb-6 font-medium">
+                    Will be revealed on 1st September 2025
+                  </p>
+                  
+                  {/* Disabled Round 1 Submission Button */}
+                  <motion.button
+                    disabled
+                    className="bg-gray-600 text-gray-400 font-semibold px-6 py-3 rounded-lg cursor-not-allowed opacity-50"
+                  >
+                    Round 1 Submission (Coming Soon)
+                  </motion.button>
                 </div>
-                
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </motion.div>
-            ))}
+            </div>
           </motion.div>
-          
-          {/* Coming soon hint */}
-          <motion.div 
-            variants={fadeInUp}
-            className="mt-12 text-center"
-          >
-            <p className="text-yellow-400/80 italic">
-              Full problem statements will be revealed at the hackathon kickoff
-            </p>
-          </motion.div>
+
         </motion.div>
       </div>
     </section>
