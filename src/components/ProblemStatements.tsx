@@ -46,11 +46,6 @@ const ProblemStatements = () => {
 
           {/* Round 1 Problem Statement */}
           <motion.div variants={fadeInUp} className="mb-16">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-white mb-2">Round 1</h3>
-              <p className="text-gray-400 text-sm">Online Qualification Round</p>
-            </div>
-            
             <div className="max-w-2xl mx-auto">
               <motion.div
                 variants={fadeInUp}

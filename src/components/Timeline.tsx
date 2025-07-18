@@ -85,7 +85,7 @@ const Timeline = () => {
               transition={{ duration: 1.2, ease: "easeInOut" }}
             />
             
-            <div className="relative z-10 space-y-12">
+            <div className="relative z-10 space-y-4 md:space-y-8">
               {timelineEvents.map((event, index) => (
                 <motion.div 
                   key={index}
@@ -122,7 +122,7 @@ const Timeline = () => {
                       <h3 className="text-lg font-semibold text-white mb-2">
                         {event.title}
                       </h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">
+                      <p className="hidden md:block text-gray-400 text-sm leading-relaxed">
                         {event.description}
                       </p>
                     </div>
