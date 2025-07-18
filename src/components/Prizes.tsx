@@ -88,10 +88,7 @@ const Prizes = () => {
   ];
 
   return (
-    <section id="prizes" className="py-12 md:py-16 lg:py-20 relative overflow-hidden">
-      {/* Simplified accent elements */}
-      <div className="absolute top-40 -left-32 w-64 h-64 bg-yellow-400/10 rounded-full filter blur-2xl"></div>
-      
+    <section id="prizes" className="py-12 md:py-16 lg:py-20 relative overflow-hidden">      
       <div className="container max-w-7xl mx-auto px-6 relative z-20">
         <motion.div
           initial="hidden"
