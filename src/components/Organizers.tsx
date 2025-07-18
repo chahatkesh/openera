@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { RiLinkedinFill, RiTwitterXLine, RiInstagramLine } from 'react-icons/ri';
 import DefaultAvatar from './DefaultAvatar';
 
 const Organizers = () => {
@@ -7,82 +8,50 @@ const Organizers = () => {
   const organizers = [
     {
       name: "Vatsal Khanna",
-      linkedin: "https://linkedin.com/in/vatsal-khanna",
-      twitter: "https://twitter.com/vatsal_khanna",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&auto=format&fit=crop&q=80"
+      designation: "Marketing Lead",
+      linkedin: "https://linkedin.com/in/vatsalkhanna",
+      twitter: "https://x.com/vatsalkhanna55",
+      instagram: "https://instagram.com/vatsalkhanna5",
+      image: "/team/vatsal.jpeg"
     },
     {
       name: "Chahat Kesharwani",
-      linkedin: "https://linkedin.com/in/chahat-kesharwani",
-      twitter: "https://twitter.com/chahat_kesh",
-      image: "https://images.unsplash.com/photo-1554151228-14d9def656e4?w=300&h=300&auto=format&fit=crop&q=80"
+      designation: "Finance Lead",
+      linkedin: "https://linkedin.com/in/chahatkesharwani",
+      twitter: "https://x.com/chahatkesh",
+      instagram: "https://instagram.com/chahat.kesharwanii",
+      image: "/team/chahat.jpeg"
     },
     {
       name: "Ratinderdeep Singh",
-      linkedin: "https://linkedin.com/in/ratinderdeep-singh",
-      twitter: "https://twitter.com/ratinder_singh",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&auto=format&fit=crop&q=80"
+      designation: "Logistics Head",
+      linkedin: "https://linkedin.com/in/ratinderdeepsingh",
+      twitter: "https://x.com/Ratinder_999",
+      instagram: "https://instagram.com/ratinder_999",
+      image: "/team/ratinder.jpeg"
     },
     {
       name: "Harshvardhan Agarwal",
-      linkedin: "https://linkedin.com/in/harshvardhan-agarwal",
-      twitter: "https://twitter.com/harsh_agarwal",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&auto=format&fit=crop&q=80"
+      designation: "Operations Lead",
+      linkedin: "https://linkedin.com/in/harshvardhan-agarwal-605931281",
+      twitter: "https://x.com/Harshag_91",
+      instagram: "https://instagram.com/harshvardhan_5579",
+      image: "/team/harsh.jpg"
     },
   ];
 
   return (
-    <section id="organizers" className="py-12 md:py-16 lg:py-20 bg-black relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        {/* Circuit-like pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <svg width="100%" height="100%" className="animate-pulse">
-            <defs>
-              <pattern id="circuit" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                <path d="M10 10h80v80h-80z" fill="none" stroke="#facc15" strokeWidth="0.5"/>
-                <circle cx="10" cy="10" r="2" fill="#facc15"/>
-                <circle cx="90" cy="90" r="2" fill="#facc15"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#circuit)"/>
-          </svg>
-        </div>
-        
-        {/* Glowing orbs */}
-        <div className="absolute top-20 left-1/4 w-64 h-64 bg-yellow-400/2 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-yellow-400/1 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        
-        {/* Angular shapes */}
-        <div className="absolute top-40 right-10 w-24 h-24 border border-yellow-400/20 rotate-45 animate-spin" style={{animationDuration: '20s'}}></div>
-        <div className="absolute bottom-40 left-10 w-16 h-16 border border-yellow-400/30 rotate-12 animate-bounce" style={{animationDuration: '3s'}}></div>
-      </div>
-      
+    <section id="organizers" className="py-20 relative overflow-hidden">
       <div className="container max-w-7xl mx-auto px-6 relative z-20">
         {/* Section header */}
         <div className="mb-16 text-center">
-          <div className="relative inline-block">
-            <h2 className="text-5xl md:text-6xl font-black mb-4 relative font-heading">
-              <span className="text-white">ORGANI</span>
-              <span className="text-yellow-400 relative">
-                ZERS
-                <div className="absolute -bottom-2 left-0 w-full h-2 bg-yellow-400/20 skew-x-12"></div>
-              </span>
-            </h2>
-            {/* Glitch effect lines */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-              <div className="absolute top-1/4 left-0 w-full h-0.5 bg-yellow-400 animate-pulse opacity-60"></div>
-              <div className="absolute bottom-1/4 right-0 w-3/4 h-0.5 bg-yellow-400 animate-pulse opacity-40" style={{animationDelay: '1s'}}></div>
-            </div>
-          </div>
-          
-          <div className="relative">
-            <div className="w-32 h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent mx-auto"></div>
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
-          </div>
-          
-          <p className="mt-8 text-gray-300 max-w-3xl mx-auto text-lg font-light font-body">
-            Meet the <span className="text-yellow-400 font-semibold">visionary minds</span> behind OpenERA hackathon
+          <h2 className="text-4xl font-bold mb-4 font-heading">
+            <span className="text-white">Contact</span>
+            <span className="text-yellow-400"> Us</span>
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto rounded-full"></div>
+          <p className="mt-6 text-gray-300 max-w-3xl mx-auto font-body">
+            Get in touch with our <span className="text-yellow-400 font-semibold">organizing team</span> for any queries about the hackathon
           </p>
         </div>
 
@@ -91,93 +60,78 @@ const Organizers = () => {
           {organizers.map((person, index) => (
             <div
               key={index}
-              className="group relative"
+              className="group"
             >
-              {/* Animated border */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
-              
-              {/* Card */}
-              <div className="relative bg-black border border-yellow-400/20 rounded-xl overflow-hidden hover:border-yellow-400/50 transition-all duration-500 transform hover:-translate-y-2">
-                {/* Image container */}
-                <div className="relative h-64 overflow-hidden">
-                  {/* Hexagonal clip path overlay */}
-                  <div className="absolute inset-0 z-10 bg-black/20" style={{
-                    clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)'
-                  }}></div>
-                  
-                  {/* Image */}
-                  {person.image ? (
+              {/* Modern Card Design */}
+              <div className="relative overflow-hidden bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm border border-gray-700/30 rounded-2xl hover:border-yellow-400/40 transition-all duration-500 hover:scale-[1.02]">
+                
+                {/* Profile Image - Full width at top */}
+                <div className="relative h-72 overflow-hidden">
+                  {person.image && person.image !== "/logo.png" ? (
                     <Image 
                       src={person.image} 
                       alt={person.name}
-                      width={300}
-                      height={300}
-                      className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                      width={350}
+                      height={350}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gray-900">
-                      <DefaultAvatar name={person.name} size={120} />
+                    <div className="w-full h-full bg-gradient-to-br from-yellow-400/20 to-yellow-600/10 flex items-center justify-center">
+                      <DefaultAvatar name={person.name} size={140} />
                     </div>
                   )}
                   
-                  {/* Overlay effects */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80"></div>
-                  <div className="absolute inset-0 bg-yellow-400/0 group-hover:bg-yellow-400/10 transition-all duration-500"></div>
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   
-                  {/* Scan line effect */}
-                  <div className="absolute top-0 left-0 w-full h-0.5 bg-yellow-400 opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
-                  <div className="absolute bottom-0 right-0 w-0.5 h-full bg-yellow-400 opacity-0 group-hover:opacity-100 group-hover:animate-ping" style={{animationDelay: '0.5s'}}></div>
-                </div>
-                
-                {/* Content - Fixed layout */}
-                <div className="p-6 relative">
-                  {/* Glitch bars */}
-                  <div className="absolute top-0 left-0 w-full h-0.5 bg-yellow-400/0 group-hover:bg-yellow-400/60 transition-all duration-300"></div>
-                  
-                  {/* Name section - stacked layout for better visibility */}
-                  <div className="mb-4">
-                    <h3 className="text-lg font-bold text-white group-hover:text-yellow-400 transition-colors duration-300 leading-tight font-heading">
-                      {person.name}
-                    </h3>
-                    <div className="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-yellow-400 to-transparent transition-all duration-500 mt-1"></div>
-                  </div>
-                  
-                  {/* Social media buttons - side by side */}
-                  <div className="flex justify-center gap-3">
-                    {/* LinkedIn button */}
+                  {/* Social Links - Floating on image */}
+                  <div className="absolute bottom-4 right-4 flex space-x-3 transition-all duration-300">
+                    {/* LinkedIn */}
                     <a 
                       href={person.linkedin} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-10 h-10 flex items-center justify-center bg-yellow-400/10 hover:bg-yellow-400 rounded-lg transition-all duration-300 group-hover:rotate-12 group-hover:scale-110"
-                      title="LinkedIn Profile"
+                      className="w-10 h-10 bg-black/60 backdrop-blur-sm hover:bg-blue-600 border border-white/30 hover:border-blue-400 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+                      title="LinkedIn"
                     >
-                      <svg className="w-5 h-5 text-yellow-400 group-hover:text-black transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z" />
-                      </svg>
+                      <RiLinkedinFill className="w-5 h-5 text-white" />
                     </a>
                     
-                    {/* Twitter/X button */}
+                    {/* Twitter/X */}
                     <a 
                       href={person.twitter} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-10 h-10 flex items-center justify-center bg-yellow-400/10 hover:bg-yellow-400 rounded-lg transition-all duration-300 group-hover:-rotate-12 group-hover:scale-110"
-                      title="Twitter/X Profile"
+                      className="w-10 h-10 bg-black/60 backdrop-blur-sm hover:bg-gray-700 border border-white/30 hover:border-gray-400 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+                      title="Twitter"
                     >
-                      <svg className="w-4 h-4 text-yellow-400 group-hover:text-black transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
-                      </svg>
+                      <RiTwitterXLine className="w-4 h-4 text-white" />
+                    </a>
+                    
+                    {/* Instagram */}
+                    <a 
+                      href={person.instagram} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 bg-black/60 backdrop-blur-sm hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 border border-white/30 hover:border-purple-400 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+                      title="Instagram"
+                    >
+                      <RiInstagramLine className="w-5 h-5 text-white" />
                     </a>
                   </div>
-                  
-                  {/* Tech-style decoration */}
-                  <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-yellow-400/50 to-transparent"></div>
                 </div>
                 
-                {/* Corner decorations */}
-                <div className="absolute top-3 left-3 w-4 h-4 border-l-2 border-t-2 border-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute bottom-3 right-3 w-4 h-4 border-r-2 border-b-2 border-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Content Section */}
+                <div className="py-8">
+                  <div className="text-center">
+                    <h3 className="text-xl font-semibold text-white mb-1 group-hover:text-yellow-400 transition-colors duration-300">
+                      {person.name}
+                    </h3>
+                    <p className="text-gray-400 text-sm font-medium group-hover:text-yellow-300 transition-colors duration-300">
+                      {person.designation}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           ))}

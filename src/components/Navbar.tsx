@@ -7,15 +7,15 @@ import { motion } from "framer-motion";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState("about");
 
   // Navigation items
   const navItems = [
-    { id: "home", label: "Home" },
     { id: "about", label: "About" },
     { id: "problem-statements", label: "Problem Statements" },
     { id: "timeline", label: "Timeline" },
     { id: "prizes", label: "Prizes" },
+    { id: "judges", label: "Judges" },
     { id: "sponsors", label: "Sponsors" },
     { id: "organizers", label: "Team" }
   ];

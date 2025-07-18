@@ -45,7 +45,7 @@ const ProblemStatements = () => {
           </motion.div>
 
           {/* Round 1 Problem Statement */}
-          <motion.div variants={fadeInUp} className="mb-16">
+          <motion.div variants={fadeInUp}>
             <div className="max-w-2xl mx-auto">
               <motion.div
                 variants={fadeInUp}

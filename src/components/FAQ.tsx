@@ -60,10 +60,7 @@ const FAQ = () => {
 ];
 
   return (
-    <section id="faq" className="py-12 md:py-16 lg:py-2 relative overflow-hidden">
-      {/* Yellow accent */}
-      <div className="absolute top-40 -right-32 w-64 h-64 bg-yellow-400/10 rounded-full filter blur-3xl"></div>
-      
+    <section id="faq" className="py-12 md:py-16 lg:py-2 relative overflow-hidden">      
       <div className="container max-w-5xl mx-auto px-6 relative z-20">
         <motion.div
           initial="hidden"
@@ -134,17 +131,6 @@ const FAQ = () => {
             <p className="text-gray-400 mb-6">
               Still have questions? Feel free to reach out to our team.
             </p>
-            <motion.a
-              href="#contact"
-              className="inline-flex items-center px-8 py-3 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-full transition-all duration-300 border border-yellow-500/20 hover:border-yellow-500/40"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Contact Us
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 ml-2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-              </svg>
-            </motion.a>
           </motion.div>
         </motion.div>
       </div>
