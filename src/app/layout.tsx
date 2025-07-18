@@ -46,13 +46,13 @@ export default function RootLayout({
         <div className="fixed inset-0 pointer-events-none z-0">
           {/* Primary Grid Layer - Circuit board inspiration */}
           <div 
-            className="absolute inset-0 opacity-[0.015]"
+            className="absolute inset-0 opacity-[0.08]"
             style={{
               backgroundImage: `
+                linear-gradient(rgba(255, 215, 0, 0.6) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 215, 0, 0.6) 1px, transparent 1px),
                 linear-gradient(rgba(255, 215, 0, 0.3) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 215, 0, 0.3) 1px, transparent 1px),
-                linear-gradient(rgba(255, 215, 0, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 215, 0, 0.1) 1px, transparent 1px)
+                linear-gradient(90deg, rgba(255, 215, 0, 0.3) 1px, transparent 1px)
               `,
               backgroundSize: '100px 100px, 100px 100px, 20px 20px, 20px 20px',
               animation: 'gridPulse 8s ease-in-out infinite alternate'
@@ -60,7 +60,7 @@ export default function RootLayout({
           />
           
           {/* Neural Network Layer - Animated connections */}
-          <div className="absolute inset-0 opacity-[0.008]">
+          <div className="absolute inset-0 opacity-[0.12]">
             <svg width="100%" height="100%" className="absolute inset-0">
               <defs>
                 <pattern id="neural-network" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
@@ -93,7 +93,7 @@ export default function RootLayout({
           
           {/* Data Flow Layer - Representing financial data streams */}
           <div 
-            className="absolute inset-0 opacity-[0.012]"
+            className="absolute inset-0 opacity-[0.06]"
             style={{
               backgroundImage: `
                 radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.15) 1px, transparent 2px),
@@ -107,7 +107,7 @@ export default function RootLayout({
           
           {/* Depth Layer - Subtle noise texture for sophistication */}
           <div 
-            className="absolute inset-0 opacity-[0.003]"
+            className="absolute inset-0 opacity-[0.04]"
             style={{
               backgroundImage: `
                 radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.15) 1px, transparent 0),
@@ -120,13 +120,13 @@ export default function RootLayout({
           
           {/* Scanning Line Effect - Tech blueprint feel */}
           <div 
-            className="absolute inset-0 opacity-[0.005]"
+            className="absolute inset-0 opacity-[0.15]"
             style={{
               background: `linear-gradient(
                 90deg,
                 transparent 0%,
                 transparent 45%,
-                rgba(255, 215, 0, 0.1) 50%,
+                rgba(255, 215, 0, 0.3) 50%,
                 transparent 55%,
                 transparent 100%
               )`,
@@ -135,7 +135,7 @@ export default function RootLayout({
           />
           
           {/* Financial Data Nodes - Representing market data points */}
-          <div className="absolute inset-0 opacity-[0.006]">
+          <div className="absolute inset-0 opacity-[0.10]">
             <svg width="100%" height="100%" className="absolute inset-0">
               <defs>
                 <pattern id="financial-nodes" x="0" y="0" width="300" height="300" patternUnits="userSpaceOnUse">
@@ -198,7 +198,7 @@ export default function RootLayout({
           
           {/* Circuit Board Traces - AI processing pathways */}
           <div 
-            className="absolute inset-0 opacity-[0.004]"
+            className="absolute inset-0 opacity-[0.08]"
             style={{
               backgroundImage: `
                 linear-gradient(45deg, transparent 48%, rgba(255, 215, 0, 0.1) 49%, rgba(255, 215, 0, 0.1) 51%, transparent 52%),
@@ -212,7 +212,7 @@ export default function RootLayout({
           
           {/* AI Processing Nodes - Representing machine learning activity */}
           <div 
-            className="absolute inset-0 opacity-[0.007]"
+            className="absolute inset-0 opacity-[0.12]"
             style={{
               backgroundImage: `
                 radial-gradient(circle at 15% 15%, rgba(255, 215, 0, 0.15) 1px, transparent 2px),

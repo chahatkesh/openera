@@ -149,12 +149,12 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0">
         {/* Subtle interaction with blueprint grid */}
         <motion.div 
-          className="absolute inset-0 opacity-[0.02]"
+          className="absolute inset-0 opacity-[0.08]"
           style={{
             background: `radial-gradient(
               circle at ${mousePosition.x}px ${mousePosition.y}px,
-              rgba(255, 215, 0, 0.1) 0%,
-              rgba(255, 215, 0, 0.05) 20%,
+              rgba(255, 215, 0, 0.2) 0%,
+              rgba(255, 215, 0, 0.1) 20%,
               transparent 60%
             )`
           }}
@@ -162,9 +162,9 @@ const Hero: React.FC = () => {
         
         {/* Floating energy orbs that complement the neural network */}
         <motion.div 
-          className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full opacity-[0.04]"
+          className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full opacity-[0.12]"
           style={{
-            background: 'radial-gradient(circle, rgba(255,215,0,0.2) 0%, rgba(255,215,0,0.05) 40%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(255,215,0,0.4) 0%, rgba(255,215,0,0.15) 40%, transparent 70%)',
             filter: 'blur(80px)'
           }}
           variants={floatingVariants}
@@ -172,9 +172,9 @@ const Hero: React.FC = () => {
         />
         
         <motion.div 
-          className="absolute bottom-1/3 left-1/4 w-[350px] h-[350px] rounded-full opacity-[0.03]"
+          className="absolute bottom-1/3 left-1/4 w-[350px] h-[350px] rounded-full opacity-[0.1]"
           style={{
-            background: 'radial-gradient(circle, rgba(255,165,0,0.15) 0%, rgba(255,165,0,0.03) 40%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(255,165,0,0.3) 0%, rgba(255,165,0,0.1) 40%, transparent 70%)',
             filter: 'blur(100px)'
           }}
           variants={floatingVariants}
@@ -185,16 +185,16 @@ const Hero: React.FC = () => {
         {/* Data stream effects inspired by financial trading */}
         <div className="absolute inset-0 overflow-hidden">
           <div 
-            className="absolute top-1/3 left-0 w-full h-px opacity-[0.03]"
+            className="absolute top-1/3 left-0 w-full h-px opacity-[0.2]"
             style={{
-              background: 'linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.6), transparent)',
+              background: 'linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.8), transparent)',
               animation: 'dataStream 15s linear infinite'
             }}
           />
           <div 
-            className="absolute top-2/3 left-0 w-full h-px opacity-[0.02]"
+            className="absolute top-2/3 left-0 w-full h-px opacity-[0.15]"
             style={{
-              background: 'linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent)',
+              background: 'linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.6), transparent)',
               animation: 'dataStream 12s linear infinite reverse'
             }}
           />
@@ -316,7 +316,7 @@ const Hero: React.FC = () => {
           
           <motion.a
             href="#about"
-            className="blueprint-btn px-8 py-3 rounded-full text-lg transition-all duration-300 font-body"
+            className="blueprint-btn blueprint-interactive px-8 py-3 rounded-full text-lg transition-all duration-300 font-body"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -336,14 +336,19 @@ const Hero: React.FC = () => {
               { value: timeLeft.minutes, label: "Minutes" },
               { value: timeLeft.seconds, label: "Seconds" }
             ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center">
-                <div className="blueprint-card text-2xl sm:text-4xl font-bold text-white p-3 sm:p-4 rounded-lg w-16 sm:w-20">
+              <motion.div 
+                key={i} 
+                className="flex flex-col items-center"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <div className="blueprint-card blueprint-interactive text-2xl sm:text-4xl font-bold text-white p-3 sm:p-4 rounded-lg w-16 sm:w-20">
                   {item.value}
                 </div>
                 <div className="text-xs sm:text-sm text-yellow-500 mt-2 font-mono tracking-wider">
                   {item.label}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>

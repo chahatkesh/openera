@@ -120,11 +120,11 @@ h1, h2, h3, h4, h5, h6 {
 /* Living Blueprint Background Animations */
 @keyframes gridPulse {
   0%, 100% {
-    opacity: 0.015;
+    opacity: 0.08;
     transform: scale(1);
   }
   50% {
-    opacity: 0.025;
+    opacity: 0.15;
     transform: scale(1.02);
   }
 }
@@ -235,10 +235,11 @@ h1, h2, h3, h4, h5, h6 {
 .floating-particles::after {
   content: '';
   position: absolute;
-  width: 2px;
-  height: 2px;
-  background: rgba(255, 215, 0, 0.3);
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 215, 0, 0.8);
   border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
 }
 
 .floating-particles::before {
@@ -408,103 +409,177 @@ body::before {
   }
 }
 
-/* Additional sophisticated blueprint animations */
+/* New Blueprint Background Animations */
 @keyframes circuitFlow {
-  0% {
-    transform: translateX(-20px) translateY(-20px);
-  }
-  25% {
-    transform: translateX(10px) translateY(-10px);
-  }
-  50% {
-    transform: translateX(20px) translateY(10px);
-  }
-  75% {
-    transform: translateX(-10px) translateY(20px);
-  }
-  100% {
-    transform: translateX(-20px) translateY(-20px);
-  }
+  0% { transform: translateX(0) translateY(0); }
+  25% { transform: translateX(-50px) translateY(25px); }
+  50% { transform: translateX(-100px) translateY(0); }
+  75% { transform: translateX(-50px) translateY(-25px); }
+  100% { transform: translateX(0) translateY(0); }
 }
 
 @keyframes circuitPulse {
-  0%, 100% {
-    opacity: 0.004;
-  }
-  50% {
-    opacity: 0.008;
-  }
+  0% { opacity: 0.004; }
+  100% { opacity: 0.008; }
 }
 
 @keyframes aiProcessing {
-  0%, 100% {
+  0% { 
     transform: scale(1) rotate(0deg);
     opacity: 0.007;
   }
-  33% {
-    transform: scale(1.02) rotate(0.5deg);
+  50% {
+    transform: scale(1.05) rotate(1deg);
     opacity: 0.012;
   }
-  66% {
-    transform: scale(0.98) rotate(-0.5deg);
-    opacity: 0.005;
+  100% { 
+    transform: scale(1) rotate(0deg);
+    opacity: 0.007;
   }
 }
 
-/* Enhanced financial data visualization effects */
-@keyframes marketPulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.3;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.6;
-  }
+/* Enhanced Blueprint Interactive Elements */
+.blueprint-interactive {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Subtle depth enhancement for blueprint layers */
-@keyframes blueprintDepth {
-  0%, 100% {
-    transform: translateZ(0);
-    filter: blur(0px);
-  }
-  50% {
-    transform: translateZ(1px);
-    filter: blur(0.1px);
-  }
+.blueprint-interactive::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.05), transparent);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
-/* Advanced glow effects for data nodes */
-@keyframes dataGlow {
-  0%, 100% {
-    box-shadow: 
-      0 0 3px rgba(255, 215, 0, 0.1),
-      0 0 6px rgba(255, 215, 0, 0.05),
-      0 0 9px rgba(255, 215, 0, 0.02);
-  }
-  50% {
-    box-shadow: 
-      0 0 6px rgba(255, 215, 0, 0.15),
-      0 0 12px rgba(255, 215, 0, 0.08),
-      0 0 18px rgba(255, 215, 0, 0.04);
-  }
+.blueprint-interactive::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(45deg, 
+    transparent,
+    rgba(255, 215, 0, 0.2),
+    transparent,
+    rgba(255, 215, 0, 0.1),
+    transparent
+  );
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
 }
 
-/* Financial trend line animation */
-@keyframes trendLine {
+.blueprint-interactive:hover::before {
+  opacity: 1;
+}
+
+.blueprint-interactive:hover::after {
+  opacity: 1;
+}
+
+.blueprint-interactive:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 20px 40px -12px rgba(255, 215, 0, 0.3),
+    0 0 0 1px rgba(255, 215, 0, 0.2),
+    inset 0 1px 0 rgba(255, 215, 0, 0.1);
+}
+
+/* Blueprint Button Enhancement */
+.blueprint-btn {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blueprint-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 215, 0, 0.2), 
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.blueprint-btn:hover::before {
+  left: 100%;
+}
+
+.blueprint-btn:hover {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.1));
+  border-color: rgba(255, 215, 0, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 20px 40px -12px rgba(255, 215, 0, 0.4),
+    0 0 20px rgba(255, 215, 0, 0.1);
+}
+
+/* Financial Data Particles */
+.financial-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.financial-particles::before,
+.financial-particles::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 215, 0, 0.6);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
+  animation: financialFloat 20s linear infinite;
+}
+
+.financial-particles::before {
+  top: 10%;
+  left: 20%;
+  animation-delay: -5s;
+  animation-duration: 15s;
+}
+
+.financial-particles::after {
+  top: 80%;
+  left: 80%;
+  animation-delay: -10s;
+  animation-duration: 25s;
+}
+
+@keyframes financialFloat {
   0% {
-    stroke-dashoffset: 100;
+    transform: translateY(0) translateX(0) scale(0.5);
     opacity: 0;
   }
   10% {
     opacity: 0.3;
   }
+  50% {
+    transform: translateY(-100vh) translateX(50px) scale(1);
+    opacity: 0.6;
+  }
   90% {
-    opacity: 0.1;
+    opacity: 0.2;
   }
   100% {
-    stroke-dashoffset: 0;
+    transform: translateY(-200vh) translateX(-30px) scale(0.3);
     opacity: 0;
   }
 }

@@ -262,7 +262,7 @@ const Register = () => {
                   
                   <motion.button
                     type="submit"
-                    className="w-full px-6 py-4 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-semibold rounded-md shadow-lg shadow-yellow-500/20 transition-all duration-300"
+                    className="blueprint-btn blueprint-interactive w-full px-6 py-4 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-semibold rounded-md shadow-lg shadow-yellow-500/20 transition-all duration-300"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
