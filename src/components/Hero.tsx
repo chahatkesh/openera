@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-8 sm:mb-10 lg:mb-12"
+          className="mb-8 pt-30 sm:mb-10 lg:mb-12"
         >
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-yellow-400/10 border border-yellow-400/20 mb-4 sm:mb-6">
