@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { submissionApi, type Submission } from '@/lib/api';
 
 interface FormData {
   teamLeaderEmail: string;
@@ -25,6 +26,7 @@ const RegisterPage: React.FC = () => {
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -37,33 +39,38 @@ const RegisterPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage('');
     
     try {
-      // TODO: Replace with actual API call
       console.log('Submitting form data:', formData);
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Call the backend API
+      const response = await submissionApi.create(formData);
       
-      setSubmitStatus('success');
-      
-      // Reset form after success
-      setTimeout(() => {
-        setFormData({
-          teamLeaderEmail: '',
-          teamLeaderName: '',
-          teamName: '',
-          demoUrl: '',
-          githubUrl: '',
-          driveLink: ''
-        });
-        setSubmitStatus('idle');
-      }, 3000);
+      if (response.success) {
+        setSubmitStatus('success');
+        
+        // Reset form after success
+        setTimeout(() => {
+          setFormData({
+            teamLeaderEmail: '',
+            teamLeaderName: '',
+            teamName: '',
+            demoUrl: '',
+            githubUrl: '',
+            driveLink: ''
+          });
+          setSubmitStatus('idle');
+        }, 3000);
+        } else {
+        throw new Error(response.error || 'Submission failed');
+      }
       
     } catch (error) {
       console.error('Submission failed:', error);
       setSubmitStatus('error');
-      setTimeout(() => setSubmitStatus('idle'), 3000);
+      setErrorMessage(error instanceof Error ? error.message : 'Submission failed. Please try again.');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -425,7 +432,7 @@ const RegisterPage: React.FC = () => {
               className="p-4 bg-red-500/20 border border-red-500/30 rounded-lg text-center"
             >
               <p className="text-red-400 font-medium">
-                ❌ Failed to submit project. Please try again.
+                ❌ {errorMessage || 'Failed to submit project. Please try again.'}
               </p>
             </motion.div>
           )}
