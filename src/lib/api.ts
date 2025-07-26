@@ -33,7 +33,35 @@ export interface AuthResponse {
   message?: string;
 }
 
-export interface ApiResponse<T = any> {
+export interface AdminProfile {
+  id: string;
+  email: string;
+  name: string;
+}
+
+export interface HealthStatus {
+  status: string;
+  timestamp: string;
+  uptime: number;
+}
+
+export interface AuditLog {
+  id: string;
+  action: string;
+  adminId: string;
+  submissionId?: string;
+  timestamp: string;
+  details: Record<string, unknown>;
+}
+
+export interface Stats {
+  totalSubmissions: number;
+  pendingSubmissions: number;
+  approvedSubmissions: number;
+  rejectedSubmissions: number;
+}
+
+export interface ApiResponse<T = unknown> {
   success: boolean;
   data?: T;
   message?: string;
@@ -41,7 +69,7 @@ export interface ApiResponse<T = any> {
 }
 
 // Generic API call function
-async function apiCall<T = any>(
+async function apiCall<T = unknown>(
   endpoint: string,
   options: RequestInit = {}
 ): Promise<ApiResponse<T>> {
@@ -208,8 +236,8 @@ export const authApi = {
   },
 
   // Get admin profile
-  getProfile: async (): Promise<ApiResponse<any>> => {
-    return apiCall('/api/v1/auth/profile');
+  getProfile: async (): Promise<ApiResponse<AdminProfile>> => {
+    return apiCall<AdminProfile>('/api/v1/auth/profile');
   },
 
   // Check if user is authenticated
@@ -225,41 +253,43 @@ export const healthApi = {
     return apiCall<{ message: string }>('/ping');
   },
 
-  health: async (): Promise<ApiResponse<any>> => {
-    return apiCall('/api/v1/health');
+  health: async (): Promise<ApiResponse<HealthStatus>> => {
+    return apiCall<HealthStatus>('/api/v1/health');
   },
 
-  detailedHealth: async (): Promise<ApiResponse<any>> => {
-    return apiCall('/api/v1/health/detailed');
+  detailedHealth: async (): Promise<ApiResponse<HealthStatus>> => {
+    return apiCall<HealthStatus>('/api/v1/health/detailed');
   },
 
-  dbHealth: async (): Promise<ApiResponse<any>> => {
-    return apiCall('/api/v1/health/db');
+  dbHealth: async (): Promise<ApiResponse<HealthStatus>> => {
+    return apiCall<HealthStatus>('/api/v1/health/db');
   },
 };
 
 // Audit API calls (admin only)
 export const auditApi = {
-  getAll: async (): Promise<ApiResponse<any[]>> => {
-    return apiCall<any[]>('/api/v1/audit');
+  getAll: async (): Promise<ApiResponse<AuditLog[]>> => {
+    return apiCall<AuditLog[]>('/api/v1/audit');
   },
 
-  getSubmissionLogs: async (submissionId: string): Promise<ApiResponse<any[]>> => {
-    return apiCall<any[]>(`/api/v1/audit/submission/${submissionId}`);
+  getSubmissionLogs: async (submissionId: string): Promise<ApiResponse<AuditLog[]>> => {
+    return apiCall<AuditLog[]>(`/api/v1/audit/submission/${submissionId}`);
   },
 
-  getAdminLogs: async (adminId: string): Promise<ApiResponse<any[]>> => {
-    return apiCall<any[]>(`/api/v1/audit/admin/${adminId}`);
+  getAdminLogs: async (adminId: string): Promise<ApiResponse<AuditLog[]>> => {
+    return apiCall<AuditLog[]>(`/api/v1/audit/admin/${adminId}`);
   },
 
-  getStats: async (): Promise<ApiResponse<any>> => {
-    return apiCall('/api/v1/audit/stats');
+  getStats: async (): Promise<ApiResponse<Stats>> => {
+    return apiCall<Stats>('/api/v1/audit/stats');
   },
 };
 
-export default {
+const api = {
   submission: submissionApi,
   auth: authApi,
   health: healthApi,
   audit: auditApi,
 };
+
+export default api;

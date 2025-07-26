@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
+import SectionHeader from './SectionHeader';
 
 const Judges = () => {
   // Animation variants
@@ -33,16 +34,12 @@ const Judges = () => {
           variants={staggerContainer}
         >
           {/* Section header */}
-          <motion.div variants={fadeIn} className="mb-16 text-center">
-            <h2 className="text-4xl font-bold mb-4 font-heading">
-              <span className="text-white">Expert</span>
-              <span className="text-yellow-400"> Judges</span>
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto rounded-full"></div>
-            <p className="mt-6 text-gray-300 max-w-3xl mx-auto font-body">
-              Our distinguished panel of industry experts will evaluate your innovations
-            </p>
-          </motion.div>
+          <SectionHeader 
+            title="Expert"
+            highlight="Judges"
+            description="Our distinguished panel of industry experts will evaluate your innovations"
+            className="mb-16"
+          />
 
           {/* Main content - Announcement */}
           <motion.div 

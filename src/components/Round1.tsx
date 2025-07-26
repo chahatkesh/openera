@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const ProblemStatements = () => {
+const Round1 = () => {
   const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
     visible: { 
@@ -24,7 +24,7 @@ const ProblemStatements = () => {
   };
 
   return (
-    <section id="problem-statements" className="py-12 md:py-16 lg:py-20 relative overflow-hidden">
+    <section id="round-1" className="py-12 md:py-16 lg:py-20 relative overflow-hidden">
       <div className="container max-w-6xl mx-auto px-6 relative z-20">
         <motion.div
           initial="hidden"
@@ -35,12 +35,12 @@ const ProblemStatements = () => {
           {/* Section header */}
           <motion.div variants={fadeInUp} className="mb-12 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-white">Problem</span>
-              <span className="text-yellow-400"> Statements</span>
+              <span className="text-white">Assignment</span>
+              <span className="text-yellow-400"> Submission</span>
             </h2>
             <div className="w-16 h-0.5 bg-yellow-400 mx-auto rounded-full mb-4"></div>
             <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
-              Multiple rounds of challenges at the intersection of AI and Finance.
+              Submit your solutions to the problem statements for Round 1. Ensure you follow the guidelines and deadlines.
             </p>
           </motion.div>
 
@@ -56,17 +56,8 @@ const ProblemStatements = () => {
                 className="relative bg-gradient-to-br from-yellow-400/10 to-yellow-600/5 border border-yellow-400/30 rounded-lg p-8 backdrop-blur-sm"
               >
                 <div className="text-center">
-                  <div className="mb-4">
-                    <span className="bg-yellow-400/20 text-yellow-400 text-xs font-medium px-3 py-1 rounded-full border border-yellow-400/30">
-                      R1-PS001
-                    </span>
-                    <span className="ml-2 bg-gray-500/20 text-gray-400 text-xs font-medium px-3 py-1 rounded-full border border-gray-400/20">
-                      Coming Soon
-                    </span>
-                  </div>
-
                   <h4 className="text-xl font-semibold text-white mb-3 leading-tight">
-                    Round 1 Problem Statement
+                    Round 1 : Assignment
                   </h4>
 
                   <p className="text-gray-400 text-sm mb-4">Online Qualification Challenge</p>
@@ -93,4 +84,4 @@ const ProblemStatements = () => {
   );
 };
 
-export default ProblemStatements;
+export default Round1;

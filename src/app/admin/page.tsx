@@ -12,7 +12,11 @@ const AdminPanel: React.FC = () => {
   const [filterStatus, setFilterStatus] = useState<'all' | 'pending' | 'under_review' | 'approved' | 'rejected'>('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [adminProfile, setAdminProfile] = useState<any>(null);
+  const [adminProfile, setAdminProfile] = useState<{
+    id: string;
+    email: string;
+    name: string;
+  } | null>(null);
   const [error, setError] = useState<string>('');
 
   // Check authentication on mount
@@ -26,7 +30,7 @@ const AdminPanel: React.FC = () => {
       try {
         // Verify token by getting profile
         const profileResponse = await authApi.getProfile();
-        if (profileResponse.success) {
+        if (profileResponse.success && profileResponse.data) {
           setIsAuthenticated(true);
           setAdminProfile(profileResponse.data);
           await loadSubmissions();
@@ -99,32 +103,6 @@ const AdminPanel: React.FC = () => {
     } catch (error) {
       console.error('Failed to update status:', error);
       setError('Failed to update submission status');
-    }
-  };
-
-  // Delete submission
-  const deleteSubmission = async (id: string) => {
-    if (!confirm('Are you sure you want to delete this submission? This action cannot be undone.')) {
-      return;
-    }
-
-    try {
-      const response = await submissionApi.delete(id);
-      
-      if (response.success) {
-        // Remove from local state
-        setSubmissions(prev => prev.filter(sub => sub.id !== id));
-        
-        // Close modal if this submission was selected
-        if (selectedSubmission && selectedSubmission.id === id) {
-          setSelectedSubmission(null);
-        }
-      } else {
-        setError('Failed to delete submission');
-      }
-    } catch (error) {
-      console.error('Failed to delete submission:', error);
-      setError('Failed to delete submission');
     }
   };
 
@@ -330,7 +308,7 @@ const AdminPanel: React.FC = () => {
                             </span>
                           </td>
                           <td className="px-6 py-4 text-gray-400 text-sm">
-                            {new Date(submission.submittedAt).toLocaleDateString()}
+                            {submission.createdAt ? new Date(submission.createdAt).toLocaleDateString() : 'N/A'}
                           </td>
                           <td className="px-6 py-4">
                             <button
@@ -434,7 +412,7 @@ const AdminPanel: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-400 mb-1">Submitted At</label>
-                  <div className="text-white">{new Date(selectedSubmission.submittedAt).toLocaleString()}</div>
+                  <div className="text-white">{selectedSubmission.createdAt ? new Date(selectedSubmission.createdAt).toLocaleString() : 'N/A'}</div>
                 </div>
 
                 {/* Status Update */}
@@ -444,7 +422,7 @@ const AdminPanel: React.FC = () => {
                     {(['pending', 'under_review', 'approved', 'rejected'] as const).map(status => (
                       <button
                         key={status}
-                        onClick={() => handleStatusChange(selectedSubmission.id, status)}
+                        onClick={() => selectedSubmission.id && handleStatusChange(selectedSubmission.id, status)}
                         className={`px-3 py-1 rounded text-sm transition-colors capitalize ${
                           selectedSubmission.status === status
                             ? getStatusColor(status)

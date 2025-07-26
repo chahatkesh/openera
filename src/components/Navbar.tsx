@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 
 export default function Navbar() {
@@ -9,8 +9,8 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
 
-  // Navigation items
-  const navItems = [
+  // Navigation items - wrapped in useMemo to prevent recreation on every render
+  const navItems = useMemo(() => [
     { id: "about", label: "About" },
     { id: "problem-statements", label: "Problem Statements" },
     { id: "timeline", label: "Timeline" },
@@ -18,7 +18,7 @@ export default function Navbar() {
     { id: "judges", label: "Judges" },
     { id: "sponsors", label: "Sponsors" },
     { id: "organizers", label: "Team" }
-  ];
+  ], []);
 
   // Smooth scroll function
   const scrollToSection = useCallback((sectionId: string) => {
@@ -122,7 +122,7 @@ export default function Navbar() {
               height={36}
               className="mr-3"
             />
-            <h2 className="text-xl font-bold text-white" style={{ fontFamily: 'Jersey 15, cursive' }}>
+            <h2 className="text-4xl text-white font-jersey15">
               Open<span className="text-yellow-400">ERA</span>
             </h2>
           </motion.button>
@@ -135,9 +135,10 @@ export default function Navbar() {
                 onClick={() => scrollToSection(item.id)}
                 className={`relative px-4 py-2 text-sm uppercase tracking-wider rounded-md transition-all duration-200 focus:outline-none cursor-pointer ${
                   activeSection === item.id
-                    ? "text-yellow-400 font-semibold"
-                    : "text-gray-300 hover:text-yellow-400 font-medium"
+                    ? "text-yellow-400"
+                    : "text-gray-300 hover:text-yellow-400"
                 }`}
+                style={{ fontFamily: 'Jersey 15, cursive' }}
                 whileHover={{ 
                   scale: 1.05,
                   y: -1
@@ -146,22 +147,14 @@ export default function Navbar() {
                 aria-label={`Navigate to ${item.label}`}
               >
                 {item.label}
-                {activeSection === item.id && (
-                  <motion.div
-                    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-6 h-0.5 bg-yellow-400 rounded-full"
-                    layoutId="activeIndicator"
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                  />
-                )}
               </motion.button>
             ))}
             <motion.a
               href="https://openera.devfolio.co"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-4 px-6 py-2.5 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black rounded-lg font-semibold text-sm uppercase tracking-wide hover:from-yellow-300 hover:to-yellow-400 focus:outline-none cursor-pointer transition-all duration-200"
+              className="ml-4 px-6 py-2.5 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black rounded-lg text-sm uppercase tracking-wide hover:from-yellow-300 hover:to-yellow-400 focus:outline-none cursor-pointer transition-all duration-200"
+              style={{ fontFamily: 'Jersey 15, cursive' }}
               whileHover={{ 
                 scale: 1.03,
                 y: -1
@@ -216,9 +209,10 @@ export default function Navbar() {
               onClick={() => scrollToSection(item.id)}
               className={`block w-full text-left px-3 py-3 rounded-md text-sm uppercase tracking-wider transition-all duration-200 focus:outline-none cursor-pointer ${
                 activeSection === item.id
-                  ? "text-yellow-400 bg-yellow-400/10 font-semibold border-l-4 border-yellow-400"
+                  ? "text-yellow-400 bg-yellow-400/10 border-l-4 border-yellow-400"
                   : "text-gray-300 hover:text-yellow-400 hover:bg-gray-900/50"
               }`}
+              style={{ fontFamily: 'Jersey 15, cursive' }}
               whileHover={{ x: 4 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -229,7 +223,8 @@ export default function Navbar() {
             href="https://openera.devfolio.co"
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full px-4 py-3 mt-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black rounded-lg font-semibold text-sm uppercase tracking-wide text-center hover:from-yellow-300 hover:to-yellow-400 focus:outline-none cursor-pointer transition-all duration-200"
+            className="block w-full px-4 py-3 mt-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black rounded-lg text-sm uppercase tracking-wide text-center hover:from-yellow-300 hover:to-yellow-400 focus:outline-none cursor-pointer transition-all duration-200"
+            style={{ fontFamily: 'Jersey 15, cursive' }}
             onClick={() => setMobileMenuOpen(false)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}

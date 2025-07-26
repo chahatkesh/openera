@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import SectionHeader from './SectionHeader';
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -69,16 +70,12 @@ const FAQ = () => {
           variants={staggerContainer}
         >
           {/* Section header */}
-          <motion.div variants={fadeIn} className="mb-16 text-center">
-            <h2 className="text-4xl font-bold mb-4 font-heading">
-              <span className="text-white">Frequently Asked</span>
-              <span className="text-yellow-400"> Questions</span>
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto rounded-full"></div>
-            <p className="mt-6 text-gray-300 max-w-3xl mx-auto font-body">
-              Everything you need to know about the OpenERA hackathon
-            </p>
-          </motion.div>
+          <SectionHeader 
+            title="Frequently Asked"
+            highlight="Questions"
+            description="Everything you need to know about the OpenERA hackathon"
+            className="mb-16"
+          />
 
           {/* FAQ items */}
           <div className="space-y-4">

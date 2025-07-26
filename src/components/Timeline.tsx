@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import SectionHeader from './SectionHeader';
 
 const Timeline = () => {
   const fadeIn = {
@@ -15,33 +16,27 @@ const Timeline = () => {
 
   const timelineEvents = [
     {
-      date: "25 July",
-      title: "Registration Opens",
-      description: "Start your journey! Registration begins for all participants.",
+      date: "25 July - 25 September",
+      title: "Registration",
+      description: "Start your journey! Registration is live for all participants.",
       status: "current"
     },
     {
-      date: "05 August", 
-      title: "Round 1 Problem Reveal",
-      description: "Online qualification round problem statement will be released.",
+      date: "05 September - 05 October", 
+      title: "Round 1: Assignment Submission",
+      description: "Round 1 assignment submission opens. Problem statements will be available.",
       status: "upcoming"
     },
     {
-      date: "30 September",
-      title: "Registration Ends",
-      description: "Final deadline to register for the hackathon.",
+      date: "07 October", 
+      title: "Shortlisted Teams Announcement",
+      description: "Teams shortlisted for Finale Round will be announced.",
       status: "upcoming"
     },
     {
-      date: "05 October",
-      title: "Round 1 Submission Deadline",
-      description: "Last date to submit your Round 1 solutions.",
-      status: "upcoming"
-    },
-    {
-      date: "25-26 October",
-      title: "Hack Day",
-      description: "The main hackathon event at NIT Jalandhar. 24-30 hours of innovation.",
+      date: "25 October - 26 October",
+      title: "Hackathon Day",
+      description: "The final round in-person hackathon at NIT Jalandhar.",
       status: "upcoming"
     }
   ];
@@ -63,68 +58,89 @@ const Timeline = () => {
           }}
         >
           {/* Section header */}
-          <motion.div variants={fadeIn} className="mb-16 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-white">Event</span>
-              <span className="text-yellow-400"> Timeline</span>
-            </h2>
-            <div className="w-16 h-0.5 bg-yellow-400 mx-auto rounded-full mb-4"></div>
-            <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
-              Mark your calendars for these key dates in the OpenERA hackathon journey
-            </p>
-          </motion.div>
+          <SectionHeader 
+            title="Event"
+            highlight="Timeline"
+            description="Mark your calendars for these key dates in the OpenERA hackathon journey"
+            className="mb-16"
+          />
 
           {/* Timeline */}
-          <div className="relative">
+          <div className="relative max-w-4xl mx-auto">
             {/* Vertical line */}
             <motion.div 
-              className="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-px bg-gray-700"
+              className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-yellow-400 via-gray-600 to-gray-700"
               initial={{ scaleY: 0, originY: 0 }}
               whileInView={{ scaleY: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1.2, ease: "easeInOut" }}
             />
             
-            <div className="relative z-10 space-y-4 md:space-y-8">
+            <div className="relative z-10 space-y-8 sm:space-y-12">
               {timelineEvents.map((event, index) => (
                 <motion.div 
                   key={index}
-                  className="relative flex items-center"
+                  className="relative flex items-start"
                   variants={fadeIn}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
                 >
                   {/* Timeline dot */}
-                  <div className={`absolute left-6 md:left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full border-2 ${
+                  <div className={`absolute left-2 sm:left-6 w-4 h-4 sm:w-5 sm:h-5 rounded-full border-2 sm:border-3 z-20 ${
                     event.status === 'current' 
-                      ? 'bg-yellow-400 border-yellow-400' 
+                      ? 'bg-yellow-400 border-yellow-300 shadow-lg shadow-yellow-400/50' 
                       : 'bg-gray-800 border-gray-600'
-                  }`} />
-                  
-                  {/* Content */}
-                  <div className={`w-full md:w-1/2 ml-16 md:ml-0 ${
-                    index % 2 === 0 ? 'md:pr-12' : 'md:pl-12 md:ml-auto'
                   }`}>
-                    <div className="bg-gray-900/30 border border-gray-700/50 rounded-lg p-6 backdrop-blur-sm hover:border-yellow-400/30 transition-all duration-300">
-                      {/* Date badge */}
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className={`text-xs font-medium px-3 py-1 rounded-full ${
+                    {event.status === 'current' && (
+                      <div className="absolute inset-0 rounded-full bg-yellow-400 animate-ping opacity-20"></div>
+                    )}
+                  </div>
+                  
+                  {/* Content Card */}
+                  <div className="ml-10 sm:ml-16 flex-1">
+                    <div className="bg-gradient-to-br from-gray-900/40 to-gray-800/20 border border-gray-700/30 rounded-lg sm:rounded-xl p-4 sm:p-6 lg:p-8 backdrop-blur-sm hover:border-yellow-400/30 transition-all duration-300 group">
+                      
+                      {/* Date Badge */}
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0 mb-3 sm:mb-4">
+                        <span className={`inline-flex items-center text-xs sm:text-sm font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full self-start ${
                           event.status === 'current'
                             ? 'bg-yellow-400/20 text-yellow-400 border border-yellow-400/30'
-                            : 'bg-gray-700/50 text-gray-400 border border-gray-600/30'
+                            : 'bg-gray-700/30 text-gray-300 border border-gray-600/30'
                         }`}>
-                          {event.date}
+                          <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                          </svg>
+                          <span className="inline">{event.date}</span>
                         </span>
                         {event.status === 'current' && (
-                          <span className="text-xs text-yellow-400 font-medium">● Current</span>
+                          <span className="hidden md:inline-flex items-center text-xs text-yellow-400 font-medium bg-yellow-400/10 px-2 sm:px-3 py-1 rounded-full self-start">
+                            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-400 rounded-full mr-1.5 sm:mr-2 animate-pulse"></span>
+                            Active Now
+                          </span>
                         )}
                       </div>
                       
-                      {/* Title and description */}
-                      <h3 className="text-lg font-semibold text-white mb-2">
+                      {/* Title */}
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 group-hover:text-yellow-400 transition-colors">
                         {event.title}
                       </h3>
-                      <p className="hidden md:block text-gray-400 text-sm leading-relaxed">
+                      
+                      {/* Description */}
+                      <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
                         {event.description}
                       </p>
+                      
+                      {/* Progress indicator for current event */}
+                      {event.status === 'current' && (
+                        <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-700/50">
+                          <div className="flex items-center text-xs sm:text-sm text-yellow-400">
+                            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-400 rounded-full mr-2"></div>
+                            {event.title} is currently live
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </motion.div>

@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { submissionApi, type Submission } from '@/lib/api';
+import { submissionApi } from '@/lib/api';
 
 interface FormData {
   teamLeaderEmail: string;

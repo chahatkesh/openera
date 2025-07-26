@@ -26,8 +26,8 @@ const Hero: React.FC = () => {
     };
   }, []);
   
-  // Set countdown target date for hackathon event (October 25, 2025)
-  const targetDate = new Date('2025-10-25T10:00:00').getTime();
+  // Set countdown target date for registration end (September 25, 2025)
+  const targetDate = new Date('2025-09-25T23:59:59').getTime();
   
   // Update countdown timer every second
   useEffect(() => {
@@ -58,13 +58,13 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-8 pt-30 sm:mb-10 lg:mb-12"
         >
-          {/* Badge */}
+           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-yellow-400/10 border border-yellow-400/20 mb-4 sm:mb-6">
             <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
             <span className="text-yellow-400 text-xs sm:text-sm font-medium">India&apos;s Largest Finance + AI Hackathon</span>
           </div>
 
-          <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+          <h1 className="text-7xl lg:text-8xl xl:text-9xl text-white mb-4 sm:mb-6 font-jersey15">
             Open<span className="text-yellow-400">ERA</span>
           </h1>
           
@@ -92,7 +92,7 @@ const Hero: React.FC = () => {
               <svg className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span className="whitespace-nowrap">24-30 Hours</span>
+              <span className="whitespace-nowrap">24 Hours</span>
             </div>
           </div>
         </motion.div>
@@ -105,7 +105,7 @@ const Hero: React.FC = () => {
           className="mb-10 sm:mb-12"
         >
           <div className="text-gray-400 text-xs sm:text-sm md:text-base mb-4 sm:mb-6 uppercase tracking-wider">
-            Hackathon Starts In
+            Registration Ends In
           </div>
           
           <div className="grid grid-cols-4 gap-2 sm:gap-3 md:gap-4 lg:gap-6 max-w-xs sm:max-w-sm md:max-w-lg mx-auto">

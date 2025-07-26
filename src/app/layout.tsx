@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Jersey_15 } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -12,6 +12,13 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   display: "swap",
+});
+
+const jersey15 = Jersey_15({
+  variable: "--font-jersey15",
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400"
 });
 
 export const metadata: Metadata = {
@@ -33,7 +40,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} antialiased text-white relative overflow-x-hidden`}
+        className={`${inter.variable} ${jetbrainsMono.variable} ${jersey15.variable} antialiased text-white relative overflow-x-hidden`}
         style={{
           background: `
             radial-gradient(ellipse at top left, rgba(16, 185, 129, 0.1) 0%, rgba(0, 0, 0, 1) 50%),

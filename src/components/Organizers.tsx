@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { RiLinkedinFill, RiTwitterXLine, RiInstagramLine } from 'react-icons/ri';
+import SectionHeader from './SectionHeader';
 
 const Organizers = () => {
   // Organizer details
@@ -43,16 +44,12 @@ const Organizers = () => {
     <section id="organizers" className="py-20 relative overflow-hidden">
       <div className="container max-w-7xl mx-auto px-6 relative z-20">
         {/* Section header */}
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold mb-4 font-heading">
-            <span className="text-white">Contact</span>
-            <span className="text-yellow-400"> Us</span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto rounded-full"></div>
-          <p className="mt-6 text-gray-300 max-w-3xl mx-auto font-body">
-            Get in touch with our <span className="text-yellow-400 font-semibold">organizing team</span> for any queries about the hackathon
-          </p>
-        </div>
+        <SectionHeader 
+          title="Contact"
+          highlight="Us"
+          description="Get in touch with our organizing team for any queries about the hackathon"
+          className="mb-16"
+        />
 
         {/* Organizers grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">

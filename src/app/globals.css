@@ -3,7 +3,7 @@
 :root {
   --background: #000000;
   --foreground: #ffffff;
-  --accent-primary: #FFD700; /* Yellow gold accent */
+  --accent-primary: #FFDE59; /* Yellow gold accent */
   --accent-secondary: #FFA500; /* Orange secondary accent */
   --text-primary: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.7);
@@ -12,6 +12,7 @@
   /* Font families */
   --font-heading: var(--font-jetbrains-mono);
   --font-body: var(--font-inter);
+  --font-jersey15: var(--font-jersey15);
 }
 
 body {
@@ -28,6 +29,10 @@ body {
 
 .font-body {
   font-family: var(--font-body);
+}
+
+.font-jersey15 {
+  font-family: var(--font-jersey15);
 }
 
 h1, h2, h3, h4, h5, h6 {

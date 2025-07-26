@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import SectionHeader from './SectionHeader';
 
 const Sponsors = () => {
   const fadeIn = {
@@ -107,16 +108,12 @@ const Sponsors = () => {
           variants={staggerContainer}
         >
           {/* Section header */}
-          <motion.div variants={fadeIn} className="mb-16 text-center">
-            <h2 className="text-4xl font-bold mb-4 font-heading">
-              <span className="text-white">Our</span>
-              <span className="text-yellow-400"> Sponsors</span>
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto rounded-full"></div>
-            <p className="mt-6 text-gray-300 max-w-3xl mx-auto font-body">
-              OpenERA is made possible by these amazing organizations committed to innovation in AI and finance
-            </p>
-          </motion.div>
+          <SectionHeader 
+            title="Our"
+            highlight="Sponsors"
+            description="OpenERA is made possible by these amazing organizations committed to innovation in AI and finance"
+            className="mb-16"
+          />
 
           {/* Sponsors tiers */}
           {sponsorData.map((tierData, tierIndex) => (
