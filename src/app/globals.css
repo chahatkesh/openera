@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -12,7 +13,7 @@
   /* Font families */
   --font-heading: var(--font-jetbrains-mono);
   --font-body: var(--font-inter);
-  --font-jersey15: var(--font-jersey15);
+  --font-jersey15: 'Jersey 15', cursive;
 }
 
 body {
@@ -33,6 +34,7 @@ body {
 
 .font-jersey15 {
   font-family: var(--font-jersey15);
+  font-weight: normal;
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
   }, [targetDate]);
   
   return (
-    <section id="home" className="h-screen w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section id="home" className="min-h-screen w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="relative z-10 w-full max-w-7xl mx-auto text-center">
         {/* Main Hero Content */}
         <motion.div
