@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import SectionHeader from './SectionHeader';
 
 const Round1 = () => {
   const fadeInUp = {
@@ -33,16 +34,12 @@ const Round1 = () => {
           variants={staggerContainer}
         >
           {/* Section header */}
-          <motion.div variants={fadeInUp} className="mb-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-white">Assignment</span>
-              <span className="text-yellow-400"> Submission</span>
-            </h2>
-            <div className="w-16 h-0.5 bg-yellow-400 mx-auto rounded-full mb-4"></div>
-            <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
-              Submit your solutions to the problem statements for Round 1. Ensure you follow the guidelines and deadlines.
-            </p>
-          </motion.div>
+          <SectionHeader 
+            title="Assignment"
+            highlight="Submission"
+            description="Submit your solutions to the problem statements for Round 1. Ensure you follow the guidelines and deadlines."
+            className="mb-16"
+          />
 
           {/* Round 1 Problem Statement */}
           <motion.div variants={fadeInUp}>
