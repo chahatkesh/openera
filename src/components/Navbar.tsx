@@ -12,7 +12,7 @@ export default function Navbar() {
   // Navigation items - wrapped in useMemo to prevent recreation on every render
   const navItems = useMemo(() => [
     { id: "about", label: "About" },
-    { id: "problem-statements", label: "Problem Statements" },
+    { id: "problem-statements", label: "Assignment Submission" },
     { id: "timeline", label: "Timeline" },
     { id: "prizes", label: "Prizes" },
     { id: "judges", label: "Judges" },
