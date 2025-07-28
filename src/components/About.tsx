@@ -122,7 +122,7 @@ const About = () => {
             {/* Right: Animated Image Showcase */}
             <motion.div variants={fadeInUp} className="relative">
               {/* Main Image Display */}
-              <div className="relative h-full mb-6 rounded-xl overflow-hidden">
+              <div className="relative h-full min-h-[200px] mb-6 rounded-xl overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentImageIndex}
